@@ -122,13 +122,13 @@
         const kana = `{{kana:ExpressionFurigana}}` || `{{ExpressionReading}}`;
         return (
             kana !== null &&
-            kana.replace(/[ャュョィゃゅょぃ]/g, "").length === pitchNumber
+            kana.replace(/[ァィゥェォャュョヮぁぃぅぇぉゃゅょゎ]/g, "").length === pitchNumber
         );
     }
 
-    function pitchCategories() {
+    function getPitchCategories() {
         types = "(heiban|atamadaka|nakadaka|odaka|kifuku)"
-        return [...`{{PitchPosition}}`.matchAll(types)].map( m => m[0]);
+        return [...`{{PitchCategories}}`.matchAll(types)].map( m => m[0]);
     }
 
     function endsWithAny(suffixes, string) {
@@ -138,26 +138,18 @@
         return false;
     }
 
-    function getPitchType(pitchPosition) {
-        const pitchTypes = pitchCategories();
-        const canBeKifuku = pitchTypes.includes("kifuku")
-        if (canBeKifuku) {
-            return pitchPosition === 0 ? "heiban" : "kifuku";
-        }
+    function hasVerbOrAdjEnding() {
+        return endsWithAny(
+            ["い", "う", "く", "す", "つ", "ぶ", "む", "る"],
+            "{{Expression}}".replace("</div>", "")
+        )
+    }
 
-        if (
-            endsWithAny(
-                ["い", "う", "く", "す", "つ", "ぶ", "む", "る"],
-                "{{Expression}}".replace("</div>", ""),
-            )
-        ) {
-            if (pitchPosition === 0) {
-                return "heiban";
-            } else {
-                if (pitchTypes.length == 0 || canBeKifuku) {
-                    return "kifuku";
-                }
-            }
+    function getPitchType(pitchPosition) {
+        const pitchCategories = getPitchCategories();
+        const canBeKifuku = pitchCategories.includes("kifuku")
+        if (canBeKifuku || (pitchCategories.length == 0 && hasVerbOrAdjEnding())) {
+            return pitchPosition === 0 ? "heiban" : "kifuku";
         }
 
         if (pitchPosition === 0) {
@@ -210,7 +202,7 @@
         let currentChar = "";
         let nextChar = "";
         const groupedMoras = [];
-        const check = ["ャ", "ュ", "ョ", "ィ", "ゃ", "ゅ", "ょ", "ぃ"];
+        const check = ["ァ", "ィ", "ゥ", "ェ", "ォ", "ャ", "ュ", "ョ", "ヮ", "ぁ", "ぃ", "ぅ", "ぇ", "ぉ", "ゃ", "ゅ", "ょ", "ゎ"];
 
         for (let i = 0; i < kana.length; i++) {
             currentChar = kana[i];
