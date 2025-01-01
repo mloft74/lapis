@@ -127,8 +127,8 @@
     }
 
     function getPitchCategories() {
-        types = "(heiban|atamadaka|nakadaka|odaka|kifuku)"
-        return [...`{{PitchCategories}}`.matchAll(types)].map( m => m[0]);
+        const validTypes = "(heiban|atamadaka|nakadaka|odaka|kifuku)";
+        return [...`{{PitchCategories}}`.matchAll(validTypes)].map(m => m[0]);
     }
 
     function endsWithAny(suffixes, string) {
@@ -142,12 +142,12 @@
         return endsWithAny(
             ["い", "う", "く", "す", "つ", "ぶ", "む", "る"],
             "{{Expression}}".replace("</div>", "")
-        )
+        );
     }
 
     function getPitchType(pitchPosition) {
         const pitchCategories = getPitchCategories();
-        const canBeKifuku = pitchCategories.includes("kifuku")
+        const canBeKifuku = pitchCategories.includes("kifuku");
         if (canBeKifuku || (pitchCategories.length == 0 && hasVerbOrAdjEnding())) {
             return pitchPosition === 0 ? "heiban" : "kifuku";
         }
