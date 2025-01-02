@@ -214,7 +214,7 @@ Open an issue and tell us about it on the [issue tracker](https://github.com/don
 
 You can ask us a question by opening an issue on the [issue tracker](https://github.com/donkuri/lapis/issues).
 
-## Credits
+## Contributors
 
 This project could never have happened without the following people:
 
