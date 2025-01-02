@@ -52,6 +52,10 @@ At the same time, another great notetype caught our eyes, [rudnam](https://githu
 - Lapis uses harmonic frequency ranking to create a `FreqSort` field you can use to re-order your new cards by frequency, either manually by using [Advanced Browser](https://ankiweb.net/shared/info/874215009) (see [this explanation](docs/manual_reordering.md) on how to do this), or automatically with [AutoReorder](https://ankiweb.net/shared/info/757527607). **Do be careful with the latter as there have been cases where AutoReorder has reset learned cards to 'new'.**
 - Lapis allows you to organizes dictionaries into different fields, making it easier to view information in an organized manner. You can easily choose which dictionaries you'd like to see first, more details [below](#how-to-use-the-card).
 
+## How to update Lapis
+
+In order to update Lapis (provided you're on Anki 23.10+, the supported versions), simply import the newer APKG.
+
 ## How to use Lapis
 
 To use Lapis, first download the example deck from [Releases](https://github.com/donkuri/lapis/releases). From there, you need to change your fields settings in Yomitan. Start by selecting `Lapis` as the `Model` in Yomitan's `Configure Anki Card Format`. Here is how your fields should be set up:
