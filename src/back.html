@@ -330,6 +330,20 @@
         pitchTags.appendChild(pitchTagList);
     }
 
+    // Returns the dictionary content, without the dictionary name.
+    function getDictionaryContent(dictionarySelector) {
+        const dictionary = document.querySelector(dictionarySelector);
+        const contentInSpan = dictionary.querySelector(":scope > span");
+        if (contentInSpan) return contentInSpan;
+
+        const hasDictName = dictionary.querySelector(":scope > i");
+        if (!hasDictName) return dictionary;
+
+        let dictionaryCopy = dictionary.cloneNode(true);
+        dictName = dictionaryCopy.querySelector(":scope > i");
+        dictName.remove();
+        return dictionaryCopy;
+    }
 
     function isPrimaryEqualToGloss() {
         const isJPMNConverted = document.querySelector(".definition li[data-details]");
@@ -339,13 +353,14 @@
         if (isSingleDict) {
             const primaryDictName = document.querySelector("#primary > div > i");
             const glossariesDictName = document.querySelector("#glossaries > div > i");
-            // {glossary-brief} and {glossary-no-dictionary} formatting
-            if (!primaryDictName || !glossariesDictName) {
-                const primaryDict = document.querySelector("#primary > div > span");
-                const glossariesDict = document.querySelector("#glossaries > div > span");
-                return primaryDict.innerHTML === glossariesDict.innerHTML
+            // Compare dicts names if present
+            if (primaryDictName && glossariesDictName) {
+                return primaryDictName.textContent === glossariesDictName.textContent;
             }
-            return primaryDictName.textContent === glossariesDictName.textContent;
+            // Compare content otherwise
+            const primaryDict = getDictionaryContent("#primary > div");
+            const glossariesDict = getDictionaryContent("#glossaries > div");
+            return primaryDict.innerHTML.trim() === glossariesDict.innerHTML.trim();
         }
 
         // multiple dicts
@@ -356,16 +371,18 @@
 
     // Removes Unnecessary definitions
     function cleanUpDefinitions() {
-        const primary = document.getElementById("primary");
-        const glossaries = document.getElementById("glossaries");
+        var primary = document.getElementById("primary");
+        var glossaries = document.getElementById("glossaries");
         if (primary && primary.textContent === "" ) {
-            primary.remove()
+            primary.remove();
+            primary = null;
         }
         if (glossaries && glossaries.textContent === "") {
-            glossaries.remove()
+            glossaries.remove();
+            glossaries = null;
         }
         else if (primary && glossaries && isPrimaryEqualToGloss()) {
-            glossaries.remove()
+            glossaries.remove();
         }
     }
 
