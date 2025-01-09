@@ -78,7 +78,7 @@ To use Lapis, first download the example deck from [Releases](https://github.com
 | PitchCategories    | `{pitch-accent-categories}`                                                                                                                                |
 | Frequency          | `{frequencies}`                                                                                                                                            |
 | FreqSort           | `{frequency-harmonic-rank}`                                                                                                                                |
-| MiscInfo           |                                                                                                                                                            |
+| MiscInfo           | `{document-title}` If you want your cards to include the title of the tab they were mined from, such as for light novels (LNs), please use this feature.                      |
 
 In `MainDefinition`, what you get will depend on the version of JMdict or Jitendex you have. If you decide you do not want to use any bilingual dictionary, simply use your main monolingual dictionary there.
 
