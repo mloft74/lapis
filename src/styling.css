@@ -365,6 +365,7 @@ header {
 .definition {
     text-align: left;
     display: inline-block;
+    max-width: 100%;
 }
 
 /* Definition box */
@@ -720,6 +721,12 @@ summary {
     display: inline;
 }
 
+/* reduce indentations of Jitendex for mobile */
+.mobile li[data-dictionary^="Jitendex"] ul, .mobile li[data-dictionary^="Jitendex"] ol,
+.mobile li[data-details^="Jitendex"] ul, .mobile li[data-details^="Jitendex"] ol {
+    padding-left: 0.3em;
+}
+
 /* Turn off italics */
 .definition i {
     font-style: normal;
@@ -735,6 +742,11 @@ li[data-dictionary^="JMdict"] i {
 
 .definition .hidden {
     display: none
+}
+
+/* Prevent wrapping in the middle of a Jitendex tags */
+span[data-sc-code] {
+    white-space: nowrap;
 }
 
 /* backwards compatibility code for JPMN definitions */
