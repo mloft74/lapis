@@ -364,7 +364,7 @@ header {
 /* MainDefinition */
 .definition {
     text-align: left;
-    display: inline-block;
+    width: fit-content;
     max-width: 100%;
 }
 
@@ -714,11 +714,6 @@ summary {
     display: inline;
     list-style: none;
     padding-left: 0;
-}
-
-/* fix list-number for {jitendex-brief} */
-#primary li[data-dictionary]:not(:has(> i))>span>div {
-    display: inline;
 }
 
 /* reduce indentations of Jitendex for mobile */
