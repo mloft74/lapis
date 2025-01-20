@@ -23,7 +23,7 @@ An advanced yet lightweight [Anki](https://apps.ankiweb.net/) notetype, thoughtf
   - [Will this work with tools like JL?](#will-this-work-with-tools-like-jl)
   - [How does tagging work in Lapis?](#can-i-use-tags)
   - [How do I add additional info to the card?](#how-do-i-add-additional-information-to-the-card)
-  - [Does Lapis support frequency sorting?](#what-is-frequency-sorting-and-does-lapis-support-it)
+  - [Does Lapis support frequency sorting?](#does-lapis-support-frequency-sorting)
   - [How can I change the font size?](#how-can-i-change-the-font-size)
   - [How can I change the fonts used?](#how-can-i-change-the-fonts-used)
   - [How can I change the bold color?](#how-can-i-change-the-bold-color)
