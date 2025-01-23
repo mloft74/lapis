@@ -57,28 +57,28 @@ At the same time, another great notetype caught our eyes, [rudnam](https://githu
 
 To use Lapis, first download the example deck from [Releases](https://github.com/donkuri/lapis/releases). From there, you need to change your fields settings in Yomitan. Start by selecting `Lapis` as the `Model` in Yomitan's `Configure Anki Card Format`. Here is how your fields should be set up:
 
-| Field              | Value                                                                                                                                                      |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Expression         | `{expression}`                                                                                                                                             |
-| ExpressionFurigana | `{furigana-plain}`                                                                                                                                         |
-| ExpressionReading  | `{reading}`                                                                                                                                                |
-| ExpressionAudio    | `{audio}`                                                                                                                                                  |
-| SelectionText      | `{popup-selection-text}`                                                                                                                                   |
-| MainDefinition     | Something like `{single-glossary-jmdict/jitendex}`. Find this by clicking the down arrow next to this field, and finding a dictionary in a similar format. |
-| Sentence           | `{cloze-prefix}<b>{cloze-body}</b>{cloze-suffix}`                                                                                                          |
-| SentenceFurigana   |                                                                                                                                                            |
-| SentenceAudio      |                                                                                                                                                            |
-| Picture            |                                                                                                                                                            |
-| Glossary           | `{glossary}`                                                                                                                                               |
-| Hint               | To understand the usage of this field, refer to [this](#what-does-hint-do)                                                                                 |
-| IsHintCard         |                                                                                                                                                            |
-| IsClickCard        |                                                                                                                                                            |
-| IsSentenceCard     |                                                                                                                                                            |
-| PitchPosition      | `{pitch-accent-positions}`                                                                                                                                 |
-| PitchCategories    | `{pitch-accent-categories}`                                                                                                                                |
-| Frequency          | `{frequencies}`                                                                                                                                            |
-| FreqSort           | `{frequency-harmonic-rank}`                                                                                                                                |
-| MiscInfo           | `{document-title}` If you want your cards to include the title of the tab they were mined from, such as for light novels (LNs), please use this feature.                      |
+| Field                 | Value                                                                                                                                                      |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Expression            | `{expression}`                                                                                                                                             |
+| ExpressionFurigana    | `{furigana-plain}`                                                                                                                                         |
+| ExpressionReading     | `{reading}`                                                                                                                                                |
+| ExpressionAudio       | `{audio}`                                                                                                                                                  |
+| SelectionText         | `{popup-selection-text}`                                                                                                                                   |
+| MainDefinition        | Something like `{single-glossary-jmdict/jitendex}`. Find this by clicking the down arrow next to this field, and finding a dictionary in a similar format. |
+| Sentence              | `{cloze-prefix}<b>{cloze-body}</b>{cloze-suffix}`                                                                                                          |
+| SentenceFurigana      |                                                                                                                                                            |
+| SentenceAudio         |                                                                                                                                                            |
+| Picture               |                                                                                                                                                            |
+| Glossary              | `{glossary}`                                                                                                                                               |
+| Hint                  | To understand the usage of this field, refer to [this](#what-does-hint-do)                                                                                 |
+| IsWordAndSentenceCard |                                                                                                                                                            |
+| IsClickCard           |                                                                                                                                                            |
+| IsSentenceCard        |                                                                                                                                                            |
+| PitchPosition         | `{pitch-accent-positions}`                                                                                                                                 |
+| PitchCategories       | `{pitch-accent-categories}`                                                                                                                                |
+| Frequency             | `{frequencies}`                                                                                                                                            |
+| FreqSort              | `{frequency-harmonic-rank}`                                                                                                                                |
+| MiscInfo              | `{document-title}` If you want your cards to include the title of the tab they were mined from, such as for light novels (LNs), please use this feature.   |
 
 In `MainDefinition`, what you get will depend on the version of JMdict or Jitendex you have. If you decide you do not want to use any bilingual dictionary, simply use your main monolingual dictionary there.
 
@@ -104,11 +104,11 @@ Please refer to [this](docs/updating_cards.md). We do not provide other updating
 
 The `is...Card` fields let you select the kind of card you want to use by placing 'x' (or anything really) in one of the fields. Without anything, you get plain old vocab cards. Please only use one selector to avoid bugs. Here are all the possible options:
 
-| Field selected | Effect                                                                |
-| -------------- | --------------------------------------------------------------------- |
-| IsHintCard     | Displays the `Sentence` field as a hint below the word on the front.  |
-| isClickCard    | Makes the word in the front of the card clickable to get the sentence |
-| isSentenceCard | The full sentence appears in the front instead of only the word       |
+| Field selected        | Effect                                                                |
+| --------------------- | --------------------------------------------------------------------- |
+| IsWordAndSentenceCard | Displays the `Sentence` field as a hint below the word on the front.  |
+| isClickCard           | Makes the word in the front of the card clickable to get the sentence |
+| isSentenceCard        | The full sentence appears in the front instead of only the word       |
 
 ### What does `Hint` do?
 
@@ -122,6 +122,7 @@ Here’s a brief overview of its usage as described on the Animecards site:
   - 悪口 (あっこう - わるくち)
 
 Tip: To differentiate between readings, you can specify **音読み** (on'yomi) and **訓読み** (kun'yomi) in the `Hint` field when necessary.
+
 - **Words appearing only in certain contexts**: Some words commonly appear in specific phrases or expressions. Since this context is usually consistent, it’s fine to include it as a hint.
 - **Onomatopoeic or kana words**: For words written without kanji, where no semantic clues are provided, adding a hint with context can make the meaning clearer.
 - **Making cards easier**: If kanji alone don't provide enough information, or you’ve failed a card repeatedly, the `Hint` field can make reviews more manageable. Use this as a last resort when necessary.
