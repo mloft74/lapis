@@ -159,16 +159,19 @@ html.mobile {
 
 .front-vocab {
     font-size: var(--vocab-font-size);
+    line-height: 1.5;
 }
 
 .front-sentence {
     font-size: var(--sentence-font-size);
     display: inline-block;
+    line-height: 1.5;
 }
 
 #hint {
     font-size: var(--hint-font-size);
     margin-top: -5px;
+    line-height: 1.5;
 }
 
 #click {
@@ -178,6 +181,7 @@ html.mobile {
 #click .front-vocab {
     display: inline-block;
     line-height: 1.2;
+    margin-bottom: 20px;
     border-bottom: 2px dotted var(--fg-subtle);
 }
 
@@ -185,10 +189,12 @@ html.mobile {
 
 /* Vocab on the back (for mobile) */
 .vocab {
+    line-height: 1.5;
     font-size: var(--back-vocab-font-size);
 }
 
 .mobile .vocab {
+    line-height: 1.5;
     font-size: var(--back-vocab-font-size);
 }
 
@@ -463,6 +469,7 @@ header {
 
 /* Back sentence */
 .sentence {
+    line-height: 1.5;
     font-size: var(--back-sentence-font-size);
     display: inline-block;
     width: calc(100% - 20px);
@@ -478,6 +485,7 @@ header {
 }
 
 .mobile .sentence-mobile {
+    line-height: 1.5;
     font-size: var(--back-sentence-font-size);
     display: inline-block;
     width: calc(100% - 20px);
@@ -647,7 +655,7 @@ summary {
 .pitch-high>.pitch-line {
     display: block;
     position: absolute;
-    top: -0.001em;
+    top: -0.1em;
     left: 0;
     right: 0;
     height: 0;
@@ -664,7 +672,7 @@ summary {
 .pitch-to-drop>.pitch-line {
     display: block;
     position: absolute;
-    top: -0.001em;
+    top: -0.1em;
     left: 0;
     right: 0;
     border-top-width: 0.1em;
