@@ -868,3 +868,8 @@ ol li[data-details="新和英"] details.glossary-text__details .glossary-text__s
 .dict-group__tag-list::after {
     content: ") ";
 }
+
+/* Show definition furigana */
+.def-blockquote rt {
+    opacity: 1;
+}
