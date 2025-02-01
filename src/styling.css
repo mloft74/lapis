@@ -508,11 +508,16 @@ footer {
     flex-grow: 1;
 }
 
+.tags-container .tags {
+    min-height: 1.6em;
+}
+
 .tags {
     font-family: var(--font-sans);
     background-color: var(--bg-elevated);
     color: var(--fg-color);
-    display: inline-block;
+    display: inline-grid;
+    place-items: center;
     padding: 1px 5px;
     cursor: pointer;
     border-radius: 5px;
