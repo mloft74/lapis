@@ -405,7 +405,6 @@ header {
 .def-image {
     float: right;
     margin-left: 10px;
-    margin-top: 10px;
     max-width: calc(min(35%, 200px));
     display: flex;
     flex-flow: column nowrap;
@@ -872,4 +871,16 @@ ol li[data-details="新和英"] details.glossary-text__details .glossary-text__s
 /* Show definition furigana */
 .def-blockquote rt {
     opacity: 1;
+}
+
+/* Lessen def-blockquote padding */
+.def-blockquote {
+    padding-block: .5em;
+}
+.def-blockquote ol {
+    margin-block: 0em;
+}
+.definition ol:has(> li[data-dictionary]),
+.definition ol:has(> li[data-details]) {
+    padding-inline-start: 1.3em;
 }
