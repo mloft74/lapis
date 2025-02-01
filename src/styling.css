@@ -193,11 +193,6 @@ html.mobile {
     font-size: var(--back-vocab-font-size);
 }
 
-.mobile .vocab {
-    line-height: 1.5;
-    font-size: var(--back-vocab-font-size);
-}
-
 a {
     color: #3b82f6 !important;
 }
@@ -588,17 +583,6 @@ footer {
     margin: 0;
 }
 
-/* Full definition */
-.full-def {
-    font-family: var(--font-sans);
-    text-align: left;
-    display: inline-flex;
-}
-
-.full-def ol {
-    margin: 0;
-}
-
 /* ----- Misc ----- */
 
 /* Furigana */
@@ -823,18 +807,13 @@ li[data-details="JMdict Extra"] .dict-group__glossary ul[data-sc-content="glossa
  * customization for specific dictionaries
  */
 /* Makes JMdict italic */
-ol li[data-details="JMdict (English)"],
-ol li[data-details="JMdict"],
-ol li[data-details="JMdict Extra"] {
-    /* removes the dictionary entry for jmdict */
-}
-
 ol li[data-details="JMdict (English)"] .dict-group__tag-list,
 ol li[data-details="JMdict"] .dict-group__tag-list,
 ol li[data-details="JMdict Extra"] .dict-group__tag-list {
     font-style: italic;
 }
 
+/* removes the dictionary entry for jmdict */
 ol li[data-details="JMdict (English)"] .dict-group__tag-list .dict-group__tag--dict,
 ol li[data-details="JMdict"] .dict-group__tag-list .dict-group__tag--dict,
 ol li[data-details="JMdict Extra"] .dict-group__tag-list .dict-group__tag--dict {
