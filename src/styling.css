@@ -244,7 +244,7 @@ header {
     padding: 0;
 }
 
-.freq-list-container li {
+.freq-list-container li:not(:last-of-type) {
     margin-bottom: 5px;
 }
 
@@ -866,4 +866,11 @@ ol li[data-details="新和英"] details.glossary-text__details .glossary-text__s
 .definition ol:has(> li[data-dictionary]),
 .definition ol:has(> li[data-details]) {
     padding-inline-start: 1.3em;
+}
+
+/* Removes list numbering when only one list element  */
+.definition ol:has(> li[data-dictionary]:only-of-type),
+.definition ol:has(> li[data-details]:only-of-type) {
+    list-style-type : none;
+    padding-inline-start: 0;
 }
