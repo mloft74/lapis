@@ -240,21 +240,13 @@ header {
 
 .freq-list-container ul {
     list-style-type: none;
+    line-height: 1.5;
     margin: 0;
     padding: 0;
 }
 
-.freq-list-container li:not(:last-of-type) {
-    margin-bottom: 5px;
-}
-
-.freq-list-container {
-    opacity: 0;
-}
-
 .freq-list-container.visible {
     display: block;
-    opacity: 1;
 }
 
 /* Info (audio, reading) */
