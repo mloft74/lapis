@@ -603,16 +603,16 @@ footer {
 
 /* Furigana */
 .show-furigana>ruby rt {
-    opacity: 1;
+    visibility: visible;
 }
 
 ruby rt {
     user-select: none;
-    opacity: 0;
+    visibility: hidden;
 }
 
 ruby:hover rt {
-    opacity: 1;
+    visibility: visible;
 }
 
 /* Bold */
@@ -870,7 +870,7 @@ ol li[data-details="新和英"] details.glossary-text__details .glossary-text__s
 
 /* Show definition furigana */
 .def-blockquote rt {
-    opacity: 1;
+    visibility: visible;
 }
 
 /* Lessen def-blockquote padding */
