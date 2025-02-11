@@ -139,7 +139,7 @@ This is partly inspired by JPMN and its method of organizing dictionaries. There
 
 ### Will this work with tools like JL?
 
-There is a [Setup Guide for JL](docs/jl_setup.md). JL has a couple of drawbacks: it doesn't support external dictionaries and you'll need to use [AJT Japanese](docs/anki_setup.md) to fill in all furigana. Otherwise, Lapis works well with JL. In general, **Lapis should work well with tools that support Yomitan dictionaries but not custom handlebars**.
+There is a [Setup Guide for JL](docs/jl_setup.md). Lapis works well with JL. In general, **Lapis should work well with tools that support Yomitan dictionaries but not custom handlebars**.
 
 ### How does tagging work in Lapis?
 
