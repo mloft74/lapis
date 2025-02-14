@@ -9,28 +9,33 @@ An advanced yet lightweight [Anki](https://apps.ankiweb.net/) notetype, thoughtf
 
 ### Table of Contents
 
-- [Why was Lapis created?](#why-was-lapis-created)
-- [Key Features](#key-features)
-- [How to use Lapis](#how-to-use-lapis)
-- [How to update Lapis](#how-to-update-lapis)
-- [FAQ](#faq)
-  - [What is all this Anki, notetype and mining stuff?](#what-is-all-this-anki-notetype-and-mining-stuff)
-  - [How do I set up sentence furigana?](#how-do-i-set-up-sentence-furigana)
-  - [How do I switch from JPMN to Lapis?](#how-do-i-switch-from-jpmn-to-lapis)
-  - [How do I use the various card types?](#how-do-i-use-different-card-types)
-  - [What does `Hint` do?](#what-does-hint-do)
-  - [Why three different fields for definitions?](#why-three-different-fields-for-definitions)
-  - [Will this work with tools like JL?](#will-this-work-with-tools-like-jl)
-  - [How does tagging work in Lapis?](#can-i-use-tags)
-  - [How do I add additional info to the card?](#how-do-i-add-additional-information-to-the-card)
-  - [Does Lapis support frequency sorting?](#does-lapis-support-frequency-sorting)
-  - [How can I change the font size?](#how-can-i-change-the-font-size)
-  - [How can I change the fonts used?](#how-can-i-change-the-fonts-used)
-  - [How can I change the bold color?](#how-can-i-change-the-bold-color)
-  - [How can I move the sentence on mobile?](#how-can-i-move-the-sentence-on-mobile)
-  - [I found a bug, where can I report it?](#i-found-a-bug-where-can-i-report-it)
-  - [I have a question not covered in the FAQ](#i-have-a-question-not-covered-in-the-faq)
-- [Credits](#credits)
+- [Lapis](#lapis)
+    - [Table of Contents](#table-of-contents)
+  - [Why was Lapis created?](#why-was-lapis-created)
+  - [Key features](#key-features)
+  - [How to use Lapis](#how-to-use-lapis)
+  - [How to update Lapis](#how-to-update-lapis)
+  - [FAQ](#faq)
+    - [What is all this Anki, notetype and mining stuff?](#what-is-all-this-anki-notetype-and-mining-stuff)
+    - [How do I set up sentence furigana?](#how-do-i-set-up-sentence-furigana)
+    - [How do I switch from JPMN to Lapis?](#how-do-i-switch-from-jpmn-to-lapis)
+    - [How do I use the various card types?](#how-do-i-use-the-various-card-types)
+    - [What does `Hint` do?](#what-does-hint-do)
+    - [Why three different fields for definitions?](#why-three-different-fields-for-definitions)
+    - [Will this work with tools like JL?](#will-this-work-with-tools-like-jl)
+    - [How does tagging work in Lapis?](#how-does-tagging-work-in-lapis)
+    - [How do I add additional info to the card?](#how-do-i-add-additional-info-to-the-card)
+    - [Does Lapis support frequency sorting?](#does-lapis-support-frequency-sorting)
+    - [How can I change the font size?](#how-can-i-change-the-font-size)
+    - [How can I change the fonts used?](#how-can-i-change-the-fonts-used)
+    - [How can I change the bold color?](#how-can-i-change-the-bold-color)
+    - [How can I move the sentence on mobile?](#how-can-i-move-the-sentence-on-mobile)
+    - [I found a bug, where can I report it?](#i-found-a-bug-where-can-i-report-it)
+    - [I have a question not covered in the FAQ](#i-have-a-question-not-covered-in-the-faq)
+  - [Contributors](#contributors)
+    - [Additional thanks](#additional-thanks)
+      - [kuri](#kuri)
+      - [Ruri](#ruri)
 
 ## Why was Lapis created?
 
@@ -80,7 +85,7 @@ To use Lapis, first download the example deck from [Releases](https://github.com
 | FreqSort              | `{frequency-harmonic-rank}`                                                                                                                                |
 | MiscInfo              | `{document-title}` If you want your cards to include the title of the tab they were mined from, such as for light novels (LNs), please use this feature.   |
 
-In `MainDefinition`, what you get will depend on the version of JMdict or Jitendex you have. If you decide you do not want to use any bilingual dictionary, simply use your main monolingual dictionary there.
+In `MainDefinition`, what you get will depend on the version of JMdict or Jitendex you have. If you decide you do not want to use any bilingual dictionary, simply use your main monolingual dictionary there. **Note:** Ensure that the `SentenceFurigana` field is empty, as Yomitan may automatically insert `{sentence-furigana}`. We strongly recommend **against** using this handlebar, as it does not preserve bold formatting. Additionally, if the `Sentence` field is updated, the furigana field will not be adjusted accordingly. Instead, we recommend using [AJT Japanese](docs/anki_setup.md).
 
 ## How to update Lapis
 
