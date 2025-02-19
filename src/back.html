@@ -535,18 +535,6 @@
         }
     }
 
-    // Sets the height for the Blockquote if there is a maindefpic.
-    function setBlockquoteHeight() {
-        const defImage = document.querySelector('.def-image');
-        const defBlockquote = document.querySelector('.def-blockquote');
-
-        if (defImage && defImage.innerHTML.trim() !== '') {
-            if (defBlockquote) {
-                defBlockquote.style.minHeight = '160px';
-            }
-        }
-    }
-
     // Hides the dictionaries user selected in MainDefinition in Glossary field, if any
     function hideCorrectDefinition() {
         // Do nothing if css rule already exists
@@ -586,7 +574,6 @@
         clickImages();
         frequencyHover();
         setDHHeight();
-        setBlockquoteHeight();
         hideCorrectDefinition();
         movePrimaryDicts();
     }
