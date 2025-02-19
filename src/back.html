@@ -381,8 +381,12 @@
 
     // Removes Unnecessary definitions
     function cleanUpDefinitions() {
-        var primary = document.getElementById("primary");
-        var glossaries = document.getElementById("glossaries");
+        let selection = document.getElementById("selection");
+        let primary = document.getElementById("primary");
+        let glossaries = document.getElementById("glossaries");
+        if (selection && selection.textContent === "") {
+            selection.remove();
+        }
         if (primary && primary.textContent === "") {
             primary.remove();
             primary = null;
