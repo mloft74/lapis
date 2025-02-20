@@ -34,10 +34,8 @@
                 <!-- Reading + Pitch Accent -->
                 <div class="info">
                     <div class="pitch">
-                        <div style="margin-right: -15px; display: inline">
-                            {{#ExpressionFurigana}}{{kana:ExpressionFurigana}}{{/ExpressionFurigana}}
-                            {{^ExpressionFurigana}}{{ExpressionReading}}{{/ExpressionFurigana}}
-                        </div>
+                        {{#ExpressionFurigana}}{{kana:ExpressionFurigana}}{{/ExpressionFurigana}}
+                        {{^ExpressionFurigana}}{{ExpressionReading}}{{/ExpressionFurigana}}
                     </div>
 
                     <!-- Pitch Accent -->
@@ -275,15 +273,12 @@
     }
 
     function constructPitch() {
+        const pitchPositions = `{{PitchPosition}}`.match(/^\d+|\d+\b|\d+(?=\w)/g);
+        if (!pitchPositions) return;
+
         const kana = `{{kana:ExpressionFurigana}}` || `{{ExpressionReading}}`;
         const pitch = document.querySelector(".pitch");
         const pitchTags = document.querySelector("#pitch-tags");
-        const pitchPositions = `{{PitchPosition}}`.match(/^\d+|\d+\b|\d+(?=\w)/g);
-
-        if (!pitchPositions) {
-            pitch.innerHTML = `<div style="margin-right: -15px; display: inline;">${kana}</div>`;
-            return;
-        }
 
         const createPitchSpan = (pitchClass, pitchChar) => {
             const pitchSpan = document.createElement("span");
@@ -535,18 +530,6 @@
         }
     }
 
-    // Sets the height for the Blockquote if there is a maindefpic.
-    function setBlockquoteHeight() {
-        const defImage = document.querySelector('.def-image');
-        const defBlockquote = document.querySelector('.def-blockquote');
-
-        if (defImage && defImage.innerHTML.trim() !== '') {
-            if (defBlockquote) {
-                defBlockquote.style.minHeight = '160px';
-            }
-        }
-    }
-
     // Hides the dictionaries user selected in MainDefinition in Glossary field, if any
     function hideCorrectDefinition() {
         // Do nothing if css rule already exists
@@ -586,7 +569,6 @@
         clickImages();
         frequencyHover();
         setDHHeight();
-        setBlockquoteHeight();
         hideCorrectDefinition();
         movePrimaryDicts();
     }
