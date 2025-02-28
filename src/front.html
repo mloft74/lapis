@@ -46,19 +46,23 @@
 
         // This is what it is going to click to
         const clickedContent = `
-      <div lang="ja" class="front-sentence">
-        {{#SentenceFurigana}} {{kanji:SentenceFurigana}} {{/SentenceFurigana}}
-        {{^SentenceFurigana}} {{kanji:Sentence}} {{/SentenceFurigana}}
-      </div>
-    `;
+            <div lang="ja" class="front-sentence">
+            {{#SentenceFurigana}} {{kanji:SentenceFurigana}} {{/SentenceFurigana}}
+            {{^SentenceFurigana}} {{kanji:Sentence}} {{/SentenceFurigana}}
+            </div>
+        `;
 
-        // Implement the clicking mechanism
-        clickElement.addEventListener('click', function () {
+        function toggleContent() {
             if (clickElement.innerHTML === originalContent) {
                 clickElement.innerHTML = clickedContent;
             } else {
                 clickElement.innerHTML = originalContent;
             }
+        }
+        // Implement the clicking mechanism
+        clickElement.addEventListener('click', (e) => toggleContent());
+        document.addEventListener('keydown', (e) => {
+            if (event.key === 'c' | event.key === 'C') toggleContent();
         });
     }
 
