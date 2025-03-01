@@ -15,6 +15,7 @@ An advanced yet lightweight [Anki](https://apps.ankiweb.net/) notetype, thoughtf
   - [Key features](#key-features)
   - [How to use Lapis](#how-to-use-lapis)
   - [How to update Lapis](#how-to-update-lapis)
+  - [Lapis Themes](#lapis-themes)
   - [FAQ](#faq)
     - [What is all this Anki, notetype and mining stuff?](#what-is-all-this-anki-notetype-and-mining-stuff)
     - [How do I set up sentence furigana?](#how-do-i-set-up-sentence-furigana)
@@ -90,6 +91,10 @@ In `MainDefinition`, what you get will depend on the version of JMdict or Jitend
 ## How to update Lapis
 
 In order to update Lapis (provided you're on Anki 23.10+, the supported versions), simply import the newer APKG.
+
+## Lapis themes
+
+[ccos89](https://github.com/ccos89) made a few themes for Lapis based on the [Catpuccin palette](https://catppuccin.com/palette/). You can find them [over here](https://github.com/ccos89/lapis-catpuccin). This might alter the pitch color accent, so do keep it in mind.
 
 ## FAQ
 
