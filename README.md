@@ -15,7 +15,7 @@ An advanced yet lightweight [Anki](https://apps.ankiweb.net/) notetype, thoughtf
   - [Key features](#key-features)
   - [How to use Lapis](#how-to-use-lapis)
   - [How to update Lapis](#how-to-update-lapis)
-  - [Lapis Themes](#lapis-themes)
+  - [Lapis themes](#lapis-themes)
   - [FAQ](#faq)
     - [What is all this Anki, notetype and mining stuff?](#what-is-all-this-anki-notetype-and-mining-stuff)
     - [How do I set up sentence furigana?](#how-do-i-set-up-sentence-furigana)
@@ -49,7 +49,7 @@ Lapis was co-created by [Ruri](https://github.com/bewizible), [itokatsu](https:/
 5. The source code was auto-generated, making it a real challenge for both developers and non-developers alike to read and customize. This coupled with the complexity of the note meant it was very hard for people to contribute.
 6. The original developer of the note sadly went MIA in the summer of 2023, leaving arbyste alone to understand the codebase and fix potential issues. While arbyste has done outstanding work, no further development is planned except for bug fixing.
 
-At the same time, another great notetype caught our eyes, [rudnam](https://github.com/rudnam)'s excellent [JP-study](https://github.com/rudnam/JP-study). **Lapis was made to take the best of both worlds and avoid the issues mentioned above**. Ruri focused on the technical side of the project, writing the code and building the note, while kuri helped design the note, gave feedback and led the project. After this, itokatsu joined the team and helped Ruri with the code.
+At the same time, another great notetype caught our eyes, [rudnam](https://github.com/rudnam)'s excellent [JP-study](https://github.com/rudnam/JP-study). **Lapis was made to take the best of both worlds and avoid the issues mentioned above**. Ruri focused on the technical side of the project, writing the code and building the note, while kuri helped design the note, gave feedback and led the project heavily in its initial stages. After this, itokatsu joined the team as a driving force behind the code development, with Ruri providing feedback and leading/managing the project's codebase (big thanks to itokatsu!).
 **We warmly welcome new contributors!**
 
 ## Key features
