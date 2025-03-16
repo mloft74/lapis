@@ -67,7 +67,7 @@
         </div>
         <blockquote class="main-def def-blockquote">
             {{#DefinitionPicture}}
-            <div class="def-image">{{DefinitionPicture}}</div>
+            <div class="def-image tappable">{{DefinitionPicture}}</div>
             {{/DefinitionPicture}}
             <div class="definition">
                 {{#SelectionText}}
@@ -87,8 +87,9 @@
         </div>
 
         <!------- Image modal --------->
-        <div class="modal-bg tappable"></div>
-        <div class="img-popup"></div>
+        <div class="modal-bg tappable">
+            <div class="img-popup"></div>
+        </div>
 
         {{#MiscInfo}}
         <div style="text-align: center">
