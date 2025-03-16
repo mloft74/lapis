@@ -338,6 +338,7 @@
     // Returns the dictionary content, without the dictionary name.
     function getDictionaryContent(dictionarySelector) {
         const dictionary = document.querySelector(dictionarySelector);
+        if (!dictionary) return null;
         const contentInSpan = dictionary.querySelector(":scope > span");
         if (contentInSpan) return contentInSpan;
 
@@ -365,6 +366,7 @@
             // Compare content otherwise
             const primaryDict = getDictionaryContent("#primary > div");
             const glossariesDict = getDictionaryContent("#glossaries > div");
+            if (!primaryDict || !glossariesDict ) return false;
             return primaryDict.innerHTML.trim() === glossariesDict.innerHTML.trim();
         }
 
