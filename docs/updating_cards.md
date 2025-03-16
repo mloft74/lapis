@@ -6,7 +6,7 @@ To switch your cards from JPMN to Lapis, open `Browse`, select all the JPMN card
 
 <div align="center">
  <img src="../assets/jpmn-to-lapis-change-notetype.png">
- <p><em>Credits to [xelieu](https://xelieu.github.io/jp-lazy-guide/) for the image.</em></p>
+ <p><em>Credits to <a href="https://xelieu.github.io/jp-lazy-guide/">xelieu</a> for the image.</em></p>
 </div>
 
 Note: The MiscInfo field is intended for adding any miscellaneous information the user deems relevant. If you wish to use it similarly for your JPMN-converted cards, please leave this field empty during conversion.
