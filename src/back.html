@@ -4,7 +4,7 @@
         <!-- Show the frequency number -->
         {{FreqSort}}
 
-        <!-- The frequency dropdown icon -->
+        <!-- The frequency list -->
         {{#Frequency}}
         <span class="freq-dropdown">
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" class="dropdown-arrow-svg"
@@ -12,11 +12,9 @@
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
                 <path d="M 12.7,6.5 H 3.3 L 8,11 Z"></path>
             </svg>
+            <div class="freq-list-container">{{Frequency}}</div>
         </span>
         {{/Frequency}}
-
-        <!-- The frequency list -->
-        <div class="freq-list-container"></div>
     </div>
 </header>
 
@@ -502,22 +500,17 @@
         });
     }
 
-    // Handles what you see when you hover over frequency dropdown icon
-    function frequencyHover() {
-        const hoverTrigger = document.querySelector('.freq-dropdown');
-        const frequencyElement = document.querySelector('.freq-list-container');
-        if (hoverTrigger === null) return;
+    // Format plaintext frequencies into a list
+    function formatFrequencyList() {
+        const frequency = document.querySelector('.freq-list-container');
+        if (!frequency) return;
+        const frequencyList = frequency.querySelector('ul');
+        // Already a list; nothing to do
+        if (frequencyList) return;
 
-        hoverTrigger.addEventListener('mouseenter', function () {
-            frequencyElement.innerHTML = `
-              {{#Frequency}} {{Frequency}} {{/Frequency}}
-          `;
-            frequencyElement.classList.add('visible');
-        });
-
-        hoverTrigger.addEventListener('mouseleave', function () {
-            frequencyElement.classList.remove('visible');
-        });
+        const freqs = frequency.innerText.split(',');
+        const freqHtml = `<ul>${freqs.map(freq => `<li>${freq.trim()}</li>`).join('')}</ul>`
+        frequency.innerHTML = freqHtml;
     }
 
     // Sets the height of dhLeft, dhRight, defHeader as a whole
@@ -570,7 +563,7 @@
         constructPitch();
         setUpDefToggle();
         clickImages();
-        frequencyHover();
+        formatFrequencyList();
         setDHHeight();
         hideCorrectDefinition();
         movePrimaryDicts();
