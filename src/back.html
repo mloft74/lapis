@@ -67,7 +67,7 @@
         </div>
         <blockquote class="main-def def-blockquote">
             {{#DefinitionPicture}}
-            <div class="def-image">{{DefinitionPicture}}</div>
+            <div class="def-image tappable">{{DefinitionPicture}}</div>
             {{/DefinitionPicture}}
             <div class="definition">
                 {{#SelectionText}}
@@ -87,8 +87,9 @@
         </div>
 
         <!------- Image modal --------->
-        <div class="modal-bg tappable"></div>
-        <div class="img-popup"></div>
+        <div class="modal-bg tappable">
+            <div class="img-popup"></div>
+        </div>
 
         {{#MiscInfo}}
         <div style="text-align: center">
@@ -338,6 +339,7 @@
     // Returns the dictionary content, without the dictionary name.
     function getDictionaryContent(dictionarySelector) {
         const dictionary = document.querySelector(dictionarySelector);
+        if (!dictionary) return null;
         const contentInSpan = dictionary.querySelector(":scope > span");
         if (contentInSpan) return contentInSpan;
 
@@ -365,6 +367,7 @@
             // Compare content otherwise
             const primaryDict = getDictionaryContent("#primary > div");
             const glossariesDict = getDictionaryContent("#glossaries > div");
+            if (!primaryDict || !glossariesDict ) return false;
             return primaryDict.innerHTML.trim() === glossariesDict.innerHTML.trim();
         }
 
