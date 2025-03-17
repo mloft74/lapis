@@ -133,23 +133,16 @@
         return [...`{{PitchCategories}}`.matchAll(validTypes)].map(m => m[0]);
     }
 
-    function endsWithAny(suffixes, string) {
-        for (let suffix of suffixes) {
-            if (string.endsWith(suffix)) return true;
-        }
-        return false;
-    }
-
     function hasVerbOrAdjEnding() {
-        return endsWithAny(
-            ["い", "う", "く", "す", "つ", "ぶ", "む", "る"],
-            "{{Expression}}".replace("</div>", "")
-        );
+        const endings = ["い", "う", "く", "す", "つ", "ぶ", "む", "る"];
+        return endings.some(ending => `{{Expression}}`.replace("</div>","").endsWith(ending));
     }
 
     function getPitchType(pitchPosition) {
         const pitchCategories = getPitchCategories();
-        const canBeKifuku = pitchCategories.includes("kifuku");
+        const kifukuTags = ["adj-i", "v1", "v2", "v4", "v5", "vs-", "vz", "vk", "vn", "vr"];
+        let canBeKifuku = pitchCategories.includes("kifuku");
+        canBeKifuku ||= kifukuTags.some(tag => `{{PitchCategories}}`.includes(tag));
         if (canBeKifuku || (pitchCategories.length == 0 && hasVerbOrAdjEnding())) {
             return pitchPosition === 0 ? "heiban" : "kifuku";
         }
@@ -168,19 +161,19 @@
         const pitchPositions = `{{PitchPosition}}`.match(/^\d+|\d+\b|\d+(?=\w)/g);
         if (pitchPositions === null) return;
 
-        const pitchPosition = Number(pitchPositions[0]);
+        const pitchType = getPitchType(Number(pitchPositions[0]));
         const sentences = Array.from(
             document.querySelectorAll(".sentence, .definition, .sentence-mobile"),
         );
         for (const sentence of sentences) {
             for (const targetWord of sentence.getElementsByTagName("b")) {
-                targetWord.classList.add(getPitchType(pitchPosition));
+                targetWord.classList.add(pitchType);
             }
         }
 
         const vocabElement = document.querySelector(".vocab");
         if (vocabElement !== null) {
-            vocabElement.classList.add(getPitchType(pitchPosition));
+            vocabElement.classList.add(pitchType);
         }
     }
 
