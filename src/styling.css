@@ -245,7 +245,7 @@ header {
     padding: 0;
 }
 
-.freq-list-container.visible {
+.freq-dropdown:hover .freq-list-container {
     display: block;
 }
 
