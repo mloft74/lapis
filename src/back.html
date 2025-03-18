@@ -522,13 +522,14 @@
     // Hides the dictionaries user selected in MainDefinition in Glossary field, if any
     function hideCorrectDefinition() {
         // Do nothing if css rule already exists
-        if (document.querySelector("blockquote.main-def style")) return;
+        if (document.querySelector("style#hide-main-def")) return;
 
         let primaryDicts = document.querySelectorAll("#primary li[data-dictionary]");
         if (primaryDicts.length === 0) return;
 
         let style = document.createElement('style');
         style.type = 'text/css';
+        style.id = "hide-main-def";
 
         const cssSelector = Array.from(primaryDicts).map((dict) =>
             `#glossaries li[data-dictionary="${dict.getAttribute("data-dictionary")}"]`
