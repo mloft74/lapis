@@ -715,17 +715,17 @@ summary {
 }
 
 /* Format Definitions */
-#primary ul[data-sc-content="glossary"]>li:not(:first-child)::before {
+ul[data-sc-content="glossary"]>li:not(:first-child)::before {
     white-space: pre-wrap;
     content: " | ";
     display: inline;
 }
 
-#primary ul[data-sc-content="glossary"]>li {
+ul[data-sc-content="glossary"]>li {
     display: inline;
 }
 
-#primary ul[data-sc-content="glossary"] {
+ul[data-sc-content="glossary"] {
     display: inline;
     list-style: none;
     padding-left: 0;
