@@ -391,7 +391,7 @@
         if (n_defs === 1) definitions[0].classList.remove("hidden");
         if (n_defs <= 1) return;
 
-        let currentIndex = document.head.getAttribute("data-def-index");
+        let currentIndex = document.head.dataset.defIndex;
         currentIndex = currentIndex % n_defs;
         while (currentIndex < 0) currentIndex += n_defs;
 
@@ -400,14 +400,14 @@
         }
         definitions[currentIndex].classList.remove("hidden");
 
-        const defDisplayName = definitions[currentIndex].getAttribute("data-display-name")
+        const defDisplayName = definitions[currentIndex].dataset.displayName;
         const indexDisplay = document.querySelector(".def-info");
         indexDisplay.style.opacity = 1;
         indexDisplay.innerText = `${defDisplayName} ${currentIndex + 1}/${n_defs}`;
     }
 
     function setUpDefToggle() {
-        document.head.setAttribute("data-def-index", 0);
+        document.head.dataset.defIndex = 0;
         cleanUpDefinitions();
 
         // hide all but first definition
@@ -428,8 +428,8 @@
 
         const changeIndex = (value) => {
             // sync index between clicks and arrowkeys
-            index = Number(document.head.getAttribute("data-def-index"));
-            document.head.setAttribute("data-def-index", index + value);
+            index = Number(document.head.dataset.defIndex);
+            document.head.dataset.defIndex = index + value;
             updateDefDisplay();
         };
 
@@ -523,7 +523,7 @@
         style.id = "hide-main-def";
 
         const cssSelector = Array.from(primaryDicts).map((dict) =>
-            `#glossaries li[data-dictionary="${dict.getAttribute("data-dictionary")}"]`
+            `#glossaries li[data-dictionary="${dict.dataset.dictionary}"]`
         ).join(", ");
         const cssRules = `${cssSelector} { display:none !important; }`;
         style.appendChild(document.createTextNode(cssRules));
