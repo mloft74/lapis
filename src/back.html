@@ -178,19 +178,11 @@
     }
 
     // Seperate Tags by space, and show them in their own boxes
-    function tweakHTML() {
-        // Split tags
+    function splitTags() {
         const tagsContainer = document.querySelector(".tags-container");
+        if (!tagsContainer) return;
         const tags = `{{Tags}}`.split(" ");
-        if (tagsContainer) {
-            tagsContainer.innerHTML = "";
-            for (tag of tags) {
-                const tagElem = document.createElement("div");
-                tagElem.className = "tags";
-                tagElem.innerText = tag;
-                tagsContainer.appendChild(tagElem);
-            }
-        }
+        tagsContainer.innerHTML = tags.map(tag =>`<div class="tags">${tag}</div>`).join('');
     }
 
     function groupMoras(kana) {
@@ -437,8 +429,7 @@
         const changeIndex = (value) => {
             // sync index between clicks and arrowkeys
             index = Number(document.head.getAttribute("data-def-index"));
-            index += value;
-            document.head.setAttribute("data-def-index", index);
+            document.head.setAttribute("data-def-index", index + value);
             updateDefDisplay();
         };
 
@@ -552,7 +543,7 @@
 
     // Initialize all functions!!!
     function initialize() {
-        tweakHTML();
+        splitTags();
         paintTargetWord();
         constructPitch();
         setUpDefToggle();
