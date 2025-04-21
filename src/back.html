@@ -156,12 +156,17 @@
         }
     }
 
-    // Show the color
-    function paintTargetWord() {
-        const pitchPositions = `{{PitchPosition}}`.match(/^\d+|\d+\b|\d+(?=\w)/g);
-        if (pitchPositions === null) return;
+    function handlePitches() {
+        const pitchTags = document.querySelector("#pitch-tags");
+        const pitchPositions = pitchTags?.textContent.match(/^\d+|\d+\b|\d+(?=\w)/g).map(Number);
+        if (!pitchPositions) return;
 
-        const pitchType = getPitchType(Number(pitchPositions[0]));
+        paintTargetWord(getPitchType(pitchPositions[0]));
+        constructPitch(new Set(pitchPositions));
+    }
+
+    // Show the color
+    function paintTargetWord(pitchType) {
         const sentences = Array.from(
             document.querySelectorAll(".sentence, .definition, .sentence-mobile"),
         );
@@ -256,10 +261,7 @@
         return pattern;
     }
 
-    function constructPitch() {
-        const pitchPositions = `{{PitchPosition}}`.match(/^\d+|\d+\b|\d+(?=\w)/g);
-        if (!pitchPositions) return;
-
+    function constructPitch(pitchPositions) {
         const kana = `{{kana:ExpressionFurigana}}` || `{{ExpressionReading}}`;
         const pitch = document.querySelector(".pitch");
         const pitchTags = document.querySelector("#pitch-tags");
@@ -283,20 +285,18 @@
         pitch.innerHTML = "";
         pitchTags.innerHTML = "";
         pitchTags.style.display = "inline-block";
-        let uniquePitchPositions = [...new Set(pitchPositions)];
-
         const pitchList = document.createElement("ul");
         const pitchTagList = document.createElement("ul");
 
-        for (let pitchPosition of uniquePitchPositions) {
+        for (let pitchPosition of pitchPositions) {
             const pitchTag = document.createElement("li");
             pitchTag.textContent = pitchPosition;
 
-            const pattern = getPitchPattern(Number(pitchPosition));
+            const pattern = getPitchPattern(pitchPosition);
 
             const pitchItem = document.createElement("li");
             pitchItem.classList.add("pitch-item");
-            pitchItem.classList.add(getPitchType(Number(pitchPosition)));
+            pitchItem.classList.add(getPitchType(pitchPosition));
 
             for (let i = 0; i < kana.length; i++) {
                 if (pattern[i] === "0")
@@ -544,8 +544,7 @@
     // Initialize all functions!!!
     function initialize() {
         splitTags();
-        paintTargetWord();
-        constructPitch();
+        handlePitches();
         setUpDefToggle();
         clickImages();
         formatFrequencyList();
