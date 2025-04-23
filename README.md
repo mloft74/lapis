@@ -32,6 +32,7 @@ An advanced yet lightweight [Anki](https://apps.ankiweb.net/) notetype, thoughtf
     - [How can I change the bold color?](#how-can-i-change-the-bold-color)
     - [How can I move the sentence on mobile?](#how-can-i-move-the-sentence-on-mobile)
     - [How can I change the blur effect?](#how-can-i-change-the-blur-effect)
+    - [Why is the blur feature not working?](#why-is-the-blur-feature-not-working)
     - [I found a bug, where can I report it?](#i-found-a-bug-where-can-i-report-it)
     - [I have a question not covered in the FAQ](#i-have-a-question-not-covered-in-the-faq)
   - [Contributors](#contributors)
@@ -244,6 +245,10 @@ If you want the blur effect on images to be contained, please add the `overflow:
     filter: blur(30px);
     transition: filter 0.2s;
 ```
+
+### Why is the blur feature not working?
+
+Most likely it is because you are not using the right tag. Make sure your cards are tagged with `NSFW`, not `nsfw`, not `Nsfw`, not anything else. If you want to change the name of the tag, replace the `.NSFW` part above with `.name_tag`, where `name_tag` is the name of the tag you want to use.
 
 ### I found a bug, where can I report it?
 
