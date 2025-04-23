@@ -31,6 +31,8 @@ An advanced yet lightweight [Anki](https://apps.ankiweb.net/) notetype, thoughtf
     - [How can I change the fonts used?](#how-can-i-change-the-fonts-used)
     - [How can I change the bold color?](#how-can-i-change-the-bold-color)
     - [How can I move the sentence on mobile?](#how-can-i-move-the-sentence-on-mobile)
+    - [How can I change the blur effect?](#how-can-i-change-the-blur-effect)
+    - [Why is the blur feature not working?](#why-is-the-blur-feature-not-working)
     - [I found a bug, where can I report it?](#i-found-a-bug-where-can-i-report-it)
     - [I have a question not covered in the FAQ](#i-have-a-question-not-covered-in-the-faq)
   - [Contributors](#contributors)
@@ -230,6 +232,24 @@ If you want to move a sentence above or below the definition on mobile, follow t
 
 However, if you want to move the sentence from above to below the definition, reverse this process.
 
+### How can I change the blur effect?
+
+If you want the blur effect on images to be contained, please add the `overflow: hidden` setting to your `styling.css` file like so:
+
+```css
+/* Hide NFSW Images -- make sure you use the tag `NSFW` EXACTLY */
+.NSFW {
+    overflow: hidden;
+}
+.NSFW img {
+    filter: blur(30px);
+    transition: filter 0.2s;
+```
+
+### Why is the blur feature not working?
+
+Most likely it is because you are not using the right tag. Make sure your cards are tagged with `NSFW`, not `nsfw`, not `Nsfw`, it needs to be exactly `NSFW`. If you want to change the name of the tag, replace the `.NSFW` part above with `.name_tag`, where `name_tag` is the name of the tag you want to use.
+
 ### I found a bug, where can I report it?
 
 Open an issue and tell us about it on the [issue tracker](https://github.com/donkuri/lapis/issues), we will be more than happy to help you!
@@ -242,9 +262,11 @@ You can ask us a question by opening an issue on the [issue tracker](https://git
 
 This project could never have happened without the following people:
 
-[Ruri](https://github.com/bewizible) - technical mastermind behind the project, wrote the code and built the card
+[Ruri](https://github.com/bewizible) - technical mastermind behind the project, wrote the initial code and built the card
 
 [kuri](https://github.com/donkuri) - card design, feedback and helped lead the project
+
+[itokatsu](https://github.com/itokatsu/) - contributed a lot of fixes and expanded on the initial code
 
 [Rudnam](https://github.com/rudnam) - major inspiration for the project, allowed us to reuse their code, fruitful conversations
 
