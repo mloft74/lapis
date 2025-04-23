@@ -248,7 +248,7 @@ If you want the blur effect on images to be contained, please add the `overflow:
 
 ### Why is the blur feature not working?
 
-Most likely it is because you are not using the right tag. Make sure your cards are tagged with `NSFW`, not `nsfw`, not `Nsfw`, not anything else. If you want to change the name of the tag, replace the `.NSFW` part above with `.name_tag`, where `name_tag` is the name of the tag you want to use.
+Most likely it is because you are not using the right tag. Make sure your cards are tagged with `NSFW`, not `nsfw`, not `Nsfw`, it needs to be exactly `NSFW`. If you want to change the name of the tag, replace the `.NSFW` part above with `.name_tag`, where `name_tag` is the name of the tag you want to use.
 
 ### I found a bug, where can I report it?
 
