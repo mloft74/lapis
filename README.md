@@ -257,9 +257,11 @@ You can ask us a question by opening an issue on the [issue tracker](https://git
 
 This project could never have happened without the following people:
 
-[Ruri](https://github.com/bewizible) - technical mastermind behind the project, wrote the code and built the card
+[Ruri](https://github.com/bewizible) - technical mastermind behind the project, wrote the initial code and built the card
 
 [kuri](https://github.com/donkuri) - card design, feedback and helped lead the project
+
+[itokatsu](https://github.com/itokatsu/) - contributed a lot of fixes and expanded on the initial code
 
 [Rudnam](https://github.com/rudnam) - major inspiration for the project, allowed us to reuse their code, fruitful conversations
 
