@@ -156,12 +156,17 @@
         }
     }
 
-    // Show the color
-    function paintTargetWord() {
-        const pitchPositions = `{{PitchPosition}}`.match(/^\d+|\d+\b|\d+(?=\w)/g);
-        if (pitchPositions === null) return;
+    function handlePitches() {
+        const pitchTags = document.querySelector("#pitch-tags");
+        const pitchPositions = pitchTags?.textContent.match(/^\d+|\d+\b|\d+(?=\w)/g).map(Number);
+        if (!pitchPositions) return;
 
-        const pitchType = getPitchType(Number(pitchPositions[0]));
+        paintTargetWord(getPitchType(pitchPositions[0]));
+        constructPitch(new Set(pitchPositions));
+    }
+
+    // Show the color
+    function paintTargetWord(pitchType) {
         const sentences = Array.from(
             document.querySelectorAll(".sentence, .definition, .sentence-mobile"),
         );
@@ -178,19 +183,11 @@
     }
 
     // Seperate Tags by space, and show them in their own boxes
-    function tweakHTML() {
-        // Split tags
+    function splitTags() {
         const tagsContainer = document.querySelector(".tags-container");
+        if (!tagsContainer) return;
         const tags = `{{Tags}}`.split(" ");
-        if (tagsContainer) {
-            tagsContainer.innerHTML = "";
-            for (tag of tags) {
-                const tagElem = document.createElement("div");
-                tagElem.className = "tags";
-                tagElem.innerText = tag;
-                tagsContainer.appendChild(tagElem);
-            }
-        }
+        tagsContainer.innerHTML = tags.map(tag =>`<div class="tags">${tag}</div>`).join('');
     }
 
     function groupMoras(kana) {
@@ -264,10 +261,7 @@
         return pattern;
     }
 
-    function constructPitch() {
-        const pitchPositions = `{{PitchPosition}}`.match(/^\d+|\d+\b|\d+(?=\w)/g);
-        if (!pitchPositions) return;
-
+    function constructPitch(pitchPositions) {
         const kana = `{{kana:ExpressionFurigana}}` || `{{ExpressionReading}}`;
         const pitch = document.querySelector(".pitch");
         const pitchTags = document.querySelector("#pitch-tags");
@@ -291,20 +285,18 @@
         pitch.innerHTML = "";
         pitchTags.innerHTML = "";
         pitchTags.style.display = "inline-block";
-        let uniquePitchPositions = [...new Set(pitchPositions)];
-
         const pitchList = document.createElement("ul");
         const pitchTagList = document.createElement("ul");
 
-        for (let pitchPosition of uniquePitchPositions) {
+        for (let pitchPosition of pitchPositions) {
             const pitchTag = document.createElement("li");
             pitchTag.textContent = pitchPosition;
 
-            const pattern = getPitchPattern(Number(pitchPosition));
+            const pattern = getPitchPattern(pitchPosition);
 
             const pitchItem = document.createElement("li");
             pitchItem.classList.add("pitch-item");
-            pitchItem.classList.add(getPitchType(Number(pitchPosition)));
+            pitchItem.classList.add(getPitchType(pitchPosition));
 
             for (let i = 0; i < kana.length; i++) {
                 if (pattern[i] === "0")
@@ -399,7 +391,7 @@
         if (n_defs === 1) definitions[0].classList.remove("hidden");
         if (n_defs <= 1) return;
 
-        let currentIndex = document.head.getAttribute("data-def-index");
+        let currentIndex = document.head.dataset.defIndex;
         currentIndex = currentIndex % n_defs;
         while (currentIndex < 0) currentIndex += n_defs;
 
@@ -408,14 +400,14 @@
         }
         definitions[currentIndex].classList.remove("hidden");
 
-        const defDisplayName = definitions[currentIndex].getAttribute("data-display-name")
+        const defDisplayName = definitions[currentIndex].dataset.displayName;
         const indexDisplay = document.querySelector(".def-info");
         indexDisplay.style.opacity = 1;
         indexDisplay.innerText = `${defDisplayName} ${currentIndex + 1}/${n_defs}`;
     }
 
     function setUpDefToggle() {
-        document.head.setAttribute("data-def-index", 0);
+        document.head.dataset.defIndex = 0;
         cleanUpDefinitions();
 
         // hide all but first definition
@@ -436,9 +428,8 @@
 
         const changeIndex = (value) => {
             // sync index between clicks and arrowkeys
-            index = Number(document.head.getAttribute("data-def-index"));
-            index += value;
-            document.head.setAttribute("data-def-index", index);
+            index = Number(document.head.dataset.defIndex);
+            document.head.dataset.defIndex = index + value;
             updateDefDisplay();
         };
 
@@ -532,7 +523,7 @@
         style.id = "hide-main-def";
 
         const cssSelector = Array.from(primaryDicts).map((dict) =>
-            `#glossaries li[data-dictionary="${dict.getAttribute("data-dictionary")}"]`
+            `#glossaries li[data-dictionary="${dict.dataset.dictionary}"]`
         ).join(", ");
         const cssRules = `${cssSelector} { display:none !important; }`;
         style.appendChild(document.createTextNode(cssRules));
@@ -552,9 +543,8 @@
 
     // Initialize all functions!!!
     function initialize() {
-        tweakHTML();
-        paintTargetWord();
-        constructPitch();
+        splitTags();
+        handlePitches();
         setUpDefToggle();
         clickImages();
         formatFrequencyList();
