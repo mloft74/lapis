@@ -485,28 +485,23 @@ header {
 }
 
 /* Back sentence */
-.sentence {
+.sentence, .sentence-mobile {
     line-height: 1.5;
     font-size: var(--back-sentence-font-size);
     display: inline-block;
     width: calc(100% - 20px);
     max-width: var(--max-width);
+    /* show furigana on hover */
+    rt {
+        visibility: hidden;
+    }
+    b rt, ruby:hover rt {
+        visibility: visible;
+    }
 }
 
-.sentence-mobile {
+.mobile .sentence, html:not(.mobile) .sentence-mobile {
     display: none;
-}
-
-.mobile .sentence {
-    display: none;
-}
-
-.mobile .sentence-mobile {
-    line-height: 1.5;
-    font-size: var(--back-sentence-font-size);
-    display: inline-block;
-    width: calc(100% - 20px);
-    max-width: var(--max-width);
 }
 
 /* Footer */
@@ -614,27 +609,14 @@ footer {
 /* ----- Misc ----- */
 
 /* Furigana */
-.show-furigana>ruby rt {
-    visibility: visible;
-}
-
 ruby rt {
     user-select: none;
-    visibility: hidden;
-}
-
-ruby:hover rt {
-    visibility: visible;
 }
 
 /* Bold */
 b {
     color: var(--bold);
     font-weight: 600;
-}
-
-b>ruby rt {
-    opacity: 1;
 }
 
 .mobile b {
@@ -872,11 +854,6 @@ ol li[data-details="新和英"] details.glossary-text__details .glossary-text__s
 
 .dict-group__tag-list::after {
     content: ") ";
-}
-
-/* Show definition furigana */
-.def-blockquote rt {
-    visibility: visible;
 }
 
 /* Lessen def-blockquote padding */
