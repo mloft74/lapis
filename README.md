@@ -27,6 +27,7 @@ An advanced yet lightweight [Anki](https://apps.ankiweb.net/) notetype, thoughtf
     - [How does tagging work in Lapis?](#how-does-tagging-work-in-lapis)
     - [How do I add additional info to the card?](#how-do-i-add-additional-info-to-the-card)
     - [Does Lapis support frequency sorting?](#does-lapis-support-frequency-sorting)
+    - [How can I change the bold color in click cards?](#how-can-i-change-the-bold-color-in-click-cards)
     - [How can I change the font size?](#how-can-i-change-the-font-size)
     - [How can I change the fonts used?](#how-can-i-change-the-fonts-used)
     - [How can I change the bold color?](#how-can-i-change-the-bold-color)
@@ -165,6 +166,16 @@ You can use the `MiscInfo` field to add any extra information you'd like. It wil
 ### Does Lapis support frequency sorting?
 
 Yes, using the `FreqSort` field. For an explanation of what frequency sorting is, read [this](https://donkuri.github.io/learn-japanese/mining/#using-frequency-sorting). Basically, for each card `{frequency-harmonic-rank}` computes the [harmonic mean](https://en.wikipedia.org/wiki/Harmonic_mean) of all the frequencies on that card. It is often used when working with ratios and it approaches what the word's _true frequency_ looks like. That is what gets added to `FreqSort` and that is what you need to order by.
+
+### How can I change the bold color in click cards?
+
+If you do not like the bold colors (for instance grey for dark theme), you can change them under `Styling`, under the section `/* Bold colors */`. For instance, if you want a light yellow similar to JPMN, you can use the following:
+
+```css
+  /* Bold color */
+    --light-mode-bold: #999999;
+    --dark-mode-bold: #f0e67f;
+```
 
 ### How can I change the font size?
 
