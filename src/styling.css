@@ -548,16 +548,6 @@ footer {
     font-size: 9px;
 }
 
-/* Popup CSS */
-.popup {
-    font-family: var(--font-sans);
-    background-color: var(--bg-elevated);
-    display: block;
-    border-radius: 8px;
-    padding: 10px;
-    max-width: min(var(--max-width), calc(100% - 20px));
-}
-
 /* Definition Header */
 .def-header {
     display: flex;
@@ -599,6 +589,12 @@ footer {
 
 /* Misc. info */
 .misc-info {
+    font-family: var(--font-sans);
+    background-color: var(--bg-elevated);
+    display: block;
+    border-radius: 8px;
+    padding: 10px;
+    max-width: min(var(--max-width), calc(100% - 20px));
     margin: 0 auto;
 }
 
