@@ -105,6 +105,19 @@
 
     --image-brightness: var(--light-mode-image-brightness);
     --tooltip-hover-color: var(--light-mode-tooltip-hover-color);
+
+    /* Code for 大辞泉 二版 by kiwakiwaa
+    and can be found here https://github.com/kiwakiwaa/vertical-cards?tab=readme-ov-file#my-yomitan-dictionaries */
+    --daijisen-black: #FFFFFF;
+    --daijisen-white: #000000;
+    --daijisen-blue: #00AAFF;
+    --daijisen-header-djs: #A0484F;
+    --daijisen-header-djsp: #7A7A7A;
+    --daijisen-header-text: #000000;
+    --daijisen-logo-color: #DDDDDD;
+    --daijisen-background-l3: #C0C0C0;
+    --daijisen-accent-mark: #FF6666;
+    --daijisen-accent-slash: #A0A0A0;
 }
 
 html.win,
@@ -158,7 +171,7 @@ html.mobile {
         max-width: 100vw;
         max-height: 60vh;
       }
-    
+
     .img-popup-img {
     object-fit: contain;
     }
@@ -168,7 +181,7 @@ html.mobile {
     .img-popup-container {
       max-height: 70vh;
     }
-  
+
     .img-popup-img {
       object-fit: contain;
     }
