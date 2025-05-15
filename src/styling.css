@@ -382,10 +382,6 @@ header {
     pointer-events: none;
 }
 
-.mobile .def-info {
-    display: none;
-}
-
 /* MainDefinition */
 .definition {
     text-align: left;
