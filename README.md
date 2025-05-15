@@ -4,7 +4,7 @@ An advanced yet lightweight [Anki](https://apps.ankiweb.net/) notetype, thoughtf
 
 <div align="center">
   <img src="https://github.com/donkuri/lapis/raw/main/assets/Lapis.gif" alt="Click cards with Lapis">
-  <p><em>Click cards with Lapis</em></p>
+  <p><em>Click cards with Lapis. You can click on the edges of the definition blockquote to traverse your dictionaries, hover over the sentence to show furigana, and hover over the top right to see frequency information.</em></p>
 </div>
 
 ### Table of Contents
@@ -21,6 +21,7 @@ An advanced yet lightweight [Anki](https://apps.ankiweb.net/) notetype, thoughtf
     - [How do I set up sentence furigana?](#how-do-i-set-up-sentence-furigana)
     - [How do I switch from JPMN to Lapis?](#how-do-i-switch-from-jpmn-to-lapis)
     - [How do I use the various card types?](#how-do-i-use-the-various-card-types)
+    - [How do I see all my definitions?](#how-do-i-see-all-my-definitions)
     - [What does `Hint` do?](#what-does-hint-do)
     - [Why three different fields for definitions?](#why-three-different-fields-for-definitions)
     - [Will this work with tools like JL?](#will-this-work-with-tools-like-jl)
@@ -122,6 +123,10 @@ The `is...Card` fields let you select the kind of card you want to use by placin
 | IsWordAndSentenceCard | Displays the `Sentence` field as a hint below the word on the front.  |
 | isClickCard           | Makes the word in the front of the card clickable to get the sentence |
 | isSentenceCard        | The full sentence appears in the front instead of only the word       |
+
+### How do I see all my definitions?
+
+To navigate through all of your definitions, you can click on the left and right edges of the definition box/blockquote. As demonstrated in the GIF at the start, the definitions, *provided your setup is correct*, will be organized into three distinct fields. You can learn more about this structural choice [here](#why-three-different-fields-for-definitions).
 
 ### What does `Hint` do?
 
