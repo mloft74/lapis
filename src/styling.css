@@ -494,14 +494,12 @@ main {
 }
 
 /* Hide NFSW Images -- make sure you use the tag `NSFW` EXACTLY */
-.NSFW img {
+.NSFW img, .nsfw img {
     filter: blur(30px);
     transition: filter 0.2s;
-}
-
-.NSFW img:hover {
-    filter: blur(0px);
-    transition: filter 0.2s;
+    &:hover {
+        filter: blur(0px);
+    }
 }
 
 /* Back sentence */
