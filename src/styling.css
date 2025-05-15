@@ -318,6 +318,7 @@ main {
 #pitch-tags {
     color: var(--bg-color);
     font-family: var(--font-serif);
+    font-weight: bold;
     background-color: var(--fg-color);
     display: none;
     vertical-align: top;
