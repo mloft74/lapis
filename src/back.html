@@ -57,11 +57,11 @@
         {{^SentenceFurigana}} {{furigana:Sentence}} {{/SentenceFurigana}}
     </div>
 
-    <!-- The entire definition blockquote -->
+    <!-- The entire definition box -->
     <div class="def-info-container">
         <div class="def-info"></div>
     </div>
-    <blockquote class="main-def def-blockquote">
+    <div class="main-def">
         <div class="edge tappable" id="edge-prev" onclick="changeIndex(-1)"></div>
         <div class="edge tappable" id="edge-next" onclick="changeIndex(1)"></div>
         {{#DefinitionPicture}}
@@ -76,7 +76,7 @@
             {{/MainDefinition}}
             <div id="glossaries" data-display-name="Glossaries">{{Glossary}}</div>
         </div>
-    </blockquote>
+    </div>
 
     <!-- This is for the sentence that you see on mobile (positioned under definition), on Desktop, the sentence goes above the definition box, and this is hidden -->
     <div class="sentence-mobile">
@@ -420,7 +420,7 @@
         if (definitions.length < 2) return;
 
         // Since <head> doesn't change through review sessions
-        // Adding and reading this class ensure each card doesn't add its own listener
+        // Adding and checking for this class ensure each card doesn't add its own listener
         if (document.head.classList.contains("has-listener")) return;
         document.addEventListener("keydown", (e) => {
             if (e.key === "ArrowLeft") changeIndex(-1);
@@ -512,7 +512,7 @@
         const cssRules = `${cssSelector} { display:none !important; }`;
         style.appendChild(document.createTextNode(cssRules));
 
-        let defContainer = document.querySelector("blockquote.main-def");
+        let defContainer = document.querySelector(".main-def");
         defContainer.appendChild(style);
     }
 

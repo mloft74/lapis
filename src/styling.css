@@ -280,6 +280,11 @@ header {
     display: block;
 }
 
+main {
+    width: min(var(--max-width, calc(100% - 20px)));
+    margin-inline: auto;
+}
+
 /* Info (audio, reading) */
 .info {
     font-family: var(--font-sans);
@@ -354,20 +359,20 @@ header {
 
 /* Definition container */
 .main-def {
-    max-width: var(--max-width);
+    background-color: var(--bg-elevated);
+    font-family: var(--font-sans);
     font-size: var(--main-def-size);
     line-height: 1.75em;
+    text-align: left;
+    border-left: 5px solid #ccc;
+    padding: 5px 10px;
     margin: 25px auto;
-    width: calc(100% - 20px);
+    overflow: hidden;
     position: relative;
-    display: block;
 }
 
 /* Definition info display */
 .def-info-container {
-    display: block;
-    max-width: var(--max-width);
-    width: calc(100% - 20px);
     position: relative;
     margin: 0 auto;
 }
@@ -387,21 +392,6 @@ header {
     text-align: left;
     width: fit-content;
     max-width: 100%;
-}
-
-/* Definition box */
-.def-blockquote {
-    font-family: var(--font-sans);
-    background-color: var(--bg-elevated);
-    display: block;
-    max-width: min(var(--max-width), calc(100% - 20px));
-    text-align: left;
-    align-items: left;
-    justify-content: left;
-    border-left: 5px solid #ccc;
-    overflow: hidden;
-    padding: 5px 10px;
-    position: relative;
 }
 
 /* Definition toggle css */
@@ -518,8 +508,6 @@ header {
     line-height: 1.5;
     font-size: var(--back-sentence-font-size);
     display: inline-block;
-    width: calc(100% - 20px);
-    max-width: var(--max-width);
     /* show furigana on hover */
     rt {
         visibility: hidden;
@@ -620,10 +608,8 @@ footer {
 .misc-info {
     font-family: var(--font-sans);
     background-color: var(--bg-elevated);
-    display: block;
     border-radius: 8px;
     padding: 10px;
-    max-width: min(var(--max-width), calc(100% - 20px));
     margin: 0 auto;
 }
 
