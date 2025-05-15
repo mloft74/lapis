@@ -404,6 +404,35 @@ header {
     position: relative;
 }
 
+/* Definition toggle css */
+.edge {
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0.4;
+}
+
+.edge:hover {
+    background-color: var(--bg-inset);
+}
+
+#edge-prev {
+    left: 0;
+    border-radius: 8px 0px 0px 8px;
+}
+
+#edge-next {
+    right: 0;
+    border-radius: 0px 8px 8px 0px;
+}
+
+/* Hide edges when not needed */
+.edge:has(~ .definition > :last-child:first-child) {
+    display: none;
+}
+
 /* Primary Image */
 .image img {
     max-height: 400px;
@@ -690,33 +719,6 @@ summary {
 
 .kifuku {
     color: var(--kifuku);
-}
-
-/* Definition toggle css */
-.left-edge,
-.right-edge {
-    position: absolute;
-    top: 0;
-    width: 50px;
-    height: 100%;
-    cursor: pointer;
-    opacity: 0.4;
-}
-
-.left-edge {
-    left: 0;
-    border-radius: 8px 0px 0px 8px;
-}
-
-.right-edge {
-    right: 0;
-    border-radius: 0px 8px 8px 0px;
-}
-
-.left-edge:hover,
-.right-edge:hover {
-    background-color: var(--bg-inset);
-    cursor: pointer;
 }
 
 /* Format Definitions */
