@@ -58,9 +58,7 @@
     </div>
 
     <!-- The entire definition box -->
-    <div class="def-info-container">
-        <div class="def-info"></div>
-    </div>
+    <div class="def-info">First Definition 1/?</div>
     <div class="main-def">
         <div class="edge tappable" id="edge-prev" onclick="changeIndex(-1)"></div>
         <div class="edge tappable" id="edge-next" onclick="changeIndex(1)"></div>
@@ -398,7 +396,7 @@
 
         const defDisplayName = definitions[currentIndex].dataset.displayName;
         const indexDisplay = document.querySelector(".def-info");
-        indexDisplay.style.opacity = 1;
+        indexDisplay.style.visibility = "visible";
         indexDisplay.innerText = `${defDisplayName} ${currentIndex + 1}/${n_defs}`;
     }
 
@@ -468,7 +466,7 @@
         });
     }
 
-    // Format plaintext frequencies into a list
+    // Format plaintext comma-separated frequencies into a list
     function formatFrequencyList() {
         const frequency = document.querySelector('.freq-list-container');
         if (!frequency) return;
