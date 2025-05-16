@@ -627,6 +627,15 @@ b {
     font-weight: 400;
 }
 
+/* Hide scrollbar */
+.card {
+    -ms-overflow-style: none;
+    scrollbar-width: 0;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 /* Dropdown */
 details {
     font-family: var(--font-sans);
@@ -833,11 +842,11 @@ ol li[data-details="新和英"] details.glossary-text__details .glossary-text__s
     content: ") ";
 }
 
-/* Lessen def-blockquote padding */
-.def-blockquote {
+/* Lessen main-def padding */
+.main-def {
     padding-block: .5em;
 }
-.def-blockquote ol {
+.main-def ol {
     margin-block: 0em;
 }
 .definition ol:has(> li[data-dictionary]),
