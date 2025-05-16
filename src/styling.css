@@ -281,7 +281,7 @@ header {
 }
 
 main {
-    width: min(var(--max-width, calc(100% - 20px)));
+    width: min(var(--max-width), calc(100% - 20px));
     margin-inline: auto;
 }
 
