@@ -505,15 +505,16 @@ main {
     font-size: var(--back-sentence-font-size);
     display: inline-block;
     /* show furigana on hover */
-    rt {
+    & rt {
         visibility: hidden;
     }
-    b rt, ruby:hover rt {
+    & b rt, & ruby:hover rt {
         visibility: visible;
     }
 }
 
-.mobile .sentence, html:not(.mobile) .sentence-mobile {
+.mobile .sentence, 
+html:not(.mobile) .sentence-mobile {
     display: none;
 }
 
