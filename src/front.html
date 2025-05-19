@@ -1,11 +1,11 @@
 <!---------- Header ------------->
 <header style="visibility: hidden"></header>
 
-<main>
+<main lang="ja">
     <!--------- Vocab card ---------->
-    {{^IsSentenceCard}} {{^IsWordAndSentenceCard}} {{^IsClickCard}}
+    {{^IsSentenceCard}} {{^IsWordAndSentenceCard}} {{^IsClickCard}} {{^IsAudioCard}}
     <div lang="ja" class="front-vocab">{{Expression}}</div>
-    {{/IsClickCard}} {{/IsWordAndSentenceCard}} {{/IsSentenceCard}}
+    {{/IsAudioCard}} {{/IsClickCard}} {{/IsWordAndSentenceCard}} {{/IsSentenceCard}}
 
     <!------- Sentence card --------->
     {{#IsSentenceCard}}
@@ -15,10 +15,10 @@
     </div>
     {{/IsSentenceCard}}
 
-    <!--------- Hint card ----------->
+    <!--------- Word And Sentence card ----------->
     {{#IsWordAndSentenceCard}}
     <div lang="ja" class="front-vocab">{{Expression}}</div>
-    <div id="hint">
+    <div lang="ja" class="front-sentence">
         {{#SentenceFurigana}} {{kanji:SentenceFurigana}} {{/SentenceFurigana}}
         {{^SentenceFurigana}} {{kanji:Sentence}} {{/SentenceFurigana}}
     </div>
@@ -30,6 +30,15 @@
         <div lang="ja" class="front-vocab">{{Expression}}</div>
     </div>
     {{/IsClickCard}}
+
+    <!-------- Audio card ----------->
+    {{#IsAudioCard}}
+    <div id="audio">
+        <div lang="ja" class="front-sentence">{{Sentence}}</div>
+        {{#SentenceAudio}}{{SentenceAudio}}{{/SentenceAudio}}
+        {{^SentenceAudio}}{{ExpressionAudio}}{{/SentenceAudio}}
+    </div>
+    {{/IsAudioCard}}
 
     <!-- Hint -->
     {{#Hint}}
@@ -66,9 +75,15 @@
         });
     }
 
+    function HideTargetWord() {
+        const targetWord = document.querySelector('#audio b');
+        targetWord.innerText = "[...]";
+    }
+
     function initialize() {
         // Check what card type it is
         if (`{{IsClickCard}}`) ClickCard();
+        if (`{{IsAudioCard}}`) HideTargetWord();
     }
 
     initialize();
