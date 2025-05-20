@@ -35,8 +35,10 @@
     {{#IsAudioCard}}
     <div id="audio">
         <div lang="ja" class="front-sentence">{{Sentence}}</div>
-        {{#SentenceAudio}}{{SentenceAudio}}{{/SentenceAudio}}
-        {{^SentenceAudio}}{{ExpressionAudio}}{{/SentenceAudio}}
+        <div>
+            {{#SentenceAudio}}{{SentenceAudio}}{{/SentenceAudio}}
+            {{^SentenceAudio}}{{ExpressionAudio}}{{/SentenceAudio}}
+        </div>
     </div>
     {{/IsAudioCard}}
 
