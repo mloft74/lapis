@@ -84,6 +84,7 @@ To use Lapis, first download the example deck from [Releases](https://github.com
 | IsWordAndSentenceCard |                                                                                                                                                            |
 | IsClickCard           |                                                                                                                                                            |
 | IsSentenceCard        |                                                                                                                                                            |
+| IsAudioCard           |                                                                                                                                                            |
 | PitchPosition         | `{pitch-accent-positions}`                                                                                                                                 |
 | PitchCategories       | `{pitch-accent-categories}`                                                                                                                                |
 | Frequency             | `{frequencies}`                                                                                                                                            |
@@ -123,6 +124,9 @@ The `is...Card` fields let you select the kind of card you want to use by placin
 | IsWordAndSentenceCard | Displays the `Sentence` field as a hint below the word on the front.  |
 | isClickCard           | Makes the word in the front of the card clickable to get the sentence |
 | isSentenceCard        | The full sentence appears in the front instead of only the word       |
+| isAudioCard           | Plays the sentence audio and shows the sentence with the word missing |
+
+When using audio cards, make sure to populate your sentence audio. It falls back to the word audio, however it will be inaccurate if it's conjugated.
 
 ### How do I see all my definitions?
 
