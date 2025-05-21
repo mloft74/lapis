@@ -16,8 +16,8 @@
     --light-mode-kifuku: #7e53c4;
 
     /* Bold color */
-    --light-mode-bold: #999999;
-    --dark-mode-bold: #7d8590;
+    --light-mode-bold: #4660f1;
+    --dark-mode-bold: #fffd9e;
 
     /* PC Font sizes */
     --pc-main-font-size: 16px;
@@ -513,7 +513,7 @@ main {
     }
 }
 
-.mobile .sentence, 
+.mobile .sentence,
 html:not(.mobile) .sentence-mobile {
     display: none;
 }
