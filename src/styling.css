@@ -73,6 +73,19 @@
 
     --image-brightness: var(--dark-mode-image-brightness);
     --tooltip-hover-color: var(--dark-mode-tooltip-hover-color);
+
+    /* Code for 明鏡 第三版 by kiwakiwaa
+    and can be found here https://github.com/kiwakiwaa/vertical-cards?tab=readme-ov-file#my-yomitan-dictionaries */
+    --meikyo-white: #000000;
+    --meikyo-black: #cccccc;
+    --meikyo-blue: #33ccff;
+    --meikyo-red: #ff3333;
+    --meikyo-gray: #bbbbbb;
+    --meikyo-pink: #cc6666;
+    --meikyo-dark-red: #993333;
+    --meikyo-fbox-white: #ffffff;
+    --meikyo-fbox-gray: #cccccc;
+    --meikyo-box-gray: #663333;
 }
 
 .android .nightMode {
@@ -866,4 +879,16 @@ ol li[data-details="新和英"] details.glossary-text__details .glossary-text__s
 .definition ol:has(> li[data-details]:only-of-type) {
     list-style-type : none;
     padding-inline-start: 0;
+}
+
+/* Better formatting meikyo 3rd edition */
+li[data-dictionary='明鏡国語辞典 第三版'] span {
+    width: 25em !important;
+    vertical-align: bottom !important;
+}
+li[data-dictionary='明鏡国語辞典 第三版'] div:has(> span[data-sc-class="品格"]) {
+    margin-bottom: 5px !important;
+}
+li[data-dictionary="明鏡国語辞典 第三版"] [data-sc-body] {
+    font-size: var(--main-def-size) !important;
 }
