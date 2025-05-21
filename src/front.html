@@ -18,7 +18,7 @@
     <!--------- Word And Sentence card ----------->
     {{#IsWordAndSentenceCard}}
     <div lang="ja" class="front-vocab">{{Expression}}</div>
-    <div lang="ja" class="front-sentence">
+    <div lang="ja" id="hint">
         {{#SentenceFurigana}} {{kanji:SentenceFurigana}} {{/SentenceFurigana}}
         {{^SentenceFurigana}} {{kanji:Sentence}} {{/SentenceFurigana}}
     </div>
