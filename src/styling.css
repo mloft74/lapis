@@ -74,6 +74,8 @@
     --image-brightness: var(--dark-mode-image-brightness);
     --tooltip-hover-color: var(--dark-mode-tooltip-hover-color);
 
+    /* Code for 明鏡 第三版 by kiwakiwaa
+    and can be found here https://github.com/kiwakiwaa/vertical-cards?tab=readme-ov-file#my-yomitan-dictionaries */
     --meikyo-white: #000000;
     --meikyo-black: #cccccc;
     --meikyo-blue: #33ccff;
@@ -84,6 +86,31 @@
     --meikyo-fbox-white: #ffffff;
     --meikyo-fbox-gray: #cccccc;
     --meikyo-box-gray: #663333;
+    /* Support for oubunsha kogo */
+    --ozk5-blue: #00AAFF;
+    --ozk5-red: #FF6666;
+    --ozk5-light-red: #B24747;
+    --ozk5-gray: #888;
+    --ozk5-hinshi-mark: #CCCCCC;
+    --ozk5-kakomi-border: #888;
+    --ozk5-metadata-background: #888;
+    --ozk5-example-katsuyou-mark: #AAAAAA;
+    --ozk5-mark-border: #ACAC04;
+    --ozk5-gogi-panel-header: #331414;
+    --ozk5-ruigo-panel-background: #CCCCCC;
+    --ozk5-ruigo-panel-border: #777;
+    --ozk5-appendix-title-background: #BF6666;
+    --ozk5-gendai-mark: #CCCCCC;
+    /* --background-color: #1e1e1e; */
+
+    /* Support for sanseido kogo */
+    --skogo-blue: #00AAFF;
+    --skogo-red: #FF6666;
+    --skogo-light-red: #A54447;
+    --skogo-extra-light-red: #481D1E;
+    --skogo-hinshi-mark: #CCCCCC;
+    --skogo-shubetsu-mark: #CCCCCC;
+    --skogo-gendai-mark: #CCCCCC;
 }
 
 .android .nightMode {
@@ -129,6 +156,30 @@
     --daijisen-background-l3: #C0C0C0;
     --daijisen-accent-mark: #FF6666;
     --daijisen-accent-slash: #A0A0A0;
+
+    --ozk5-blue: #4a8ade;
+    --ozk5-red: #C00000;
+    --ozk5-light-red: #D96666;
+    --ozk5-gray: #888;
+    --ozk5-hinshi-mark: #444;
+    --ozk5-kakomi-border: #999;
+    --ozk5-metadata-background: #999;
+    --ozk5-example-katsuyou-mark: #666;
+    --ozk5-mark-border: #660;
+    --ozk5-gogi-panel-header: #F9E6E6;
+    --ozk5-ruigo-panel-background: #444;
+    --ozk5-ruigo-panel-border: #AAA;
+    --ozk5-appendix-title-background: #633;
+    --ozk5-gendai-mark: #888;
+    /* --background-color: #f5f5f5; */
+
+    --skogo-blue: #4a8ade;
+    --skogo-red: #C00000;
+    --skogo-light-red: #DFA6A8;
+    --skogo-extra-light-red: #FFEEEE;
+    --skogo-hinshi-mark: #444;
+    --skogo-shubetsu-mark: #707070;
+    --skogo-gendai-mark: #888;
 }
 
 html.win,
@@ -178,25 +229,26 @@ html.mobile {
     .images-container img {
         width: 44%;
     }
+
     .img-popup-container {
         max-width: 100vw;
         max-height: 60vh;
-      }
+    }
 
     .img-popup-img {
-    object-fit: contain;
+        object-fit: contain;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .img-popup-container {
-      max-height: 70vh;
+        max-height: 70vh;
     }
 
     .img-popup-img {
-      object-fit: contain;
+        object-fit: contain;
     }
-  }
+}
 
 /* ----- Front elements ----- */
 
@@ -518,23 +570,28 @@ main {
 }
 
 /* Hide NFSW Images -- make sure you use the tag `NSFW` EXACTLY */
-.NSFW img, .nsfw img {
+.NSFW img,
+.nsfw img {
     filter: blur(30px);
     transition: filter 0.2s;
+
     &:hover {
         filter: blur(0px);
     }
 }
 
 /* Back sentence */
-.sentence, .sentence-mobile {
+.sentence,
+.sentence-mobile {
     line-height: 1.5;
     font-size: var(--back-sentence-font-size);
     display: inline-block;
+
     /* show furigana on hover */
     & rt {
         visibility: hidden;
     }
+
     & ruby:hover rt {
         visibility: visible;
     }
@@ -665,6 +722,7 @@ b {
 .card {
     -ms-overflow-style: none;
     scrollbar-width: 0;
+
     &::-webkit-scrollbar {
         display: none;
     }
@@ -880,9 +938,11 @@ ol li[data-details="新和英"] details.glossary-text__details .glossary-text__s
 .main-def {
     padding-block: .5em;
 }
+
 .main-def ol {
     margin-block: 0em;
 }
+
 .definition ol:has(> li[data-dictionary]),
 .definition ol:has(> li[data-details]) {
     padding-inline-start: 1.3em;
@@ -891,7 +951,7 @@ ol li[data-details="新和英"] details.glossary-text__details .glossary-text__s
 /* Removes list numbering when only one list element  */
 .definition ol:has(> li[data-dictionary]:only-of-type),
 .definition ol:has(> li[data-details]:only-of-type) {
-    list-style-type : none;
+    list-style-type: none;
     padding-inline-start: 0;
 }
 
@@ -900,9 +960,40 @@ li[data-dictionary='明鏡国語辞典 第三版'] span {
     width: 25em !important;
     vertical-align: bottom !important;
 }
+
 li[data-dictionary='明鏡国語辞典 第三版'] div:has(> span[data-sc-class="品格"]) {
     margin-bottom: 5px !important;
 }
+
 li[data-dictionary="明鏡国語辞典 第三版"] [data-sc-body] {
     font-size: var(--main-def-size) !important;
+}
+
+/* Formatting for sanseido kogo dict */
+li[data-dictionary="三省堂 全訳読解古語辞典"] span[data-sc-body] {
+    line-height: 1.4em;
+}
+[data-dictionary="三省堂 全訳読解古語辞典"] span[data-sc-rectr][data-sc-fill] {
+    color: #f5f5f5 !important;
+}
+.nightMode [data-dictionary="三省堂 全訳読解古語辞典"] span[data-sc-rectr][data-sc-fill] {
+    color: #1e1e1e !important;
+}
+
+/* Formatting for oubunsha kogo dict */
+li[data-dictionary="旺文社 全訳古語辞典"] [data-sc-audio_play_button],
+li[data-dictionary="旺文社 全訳古語辞典"] [data-sc-audio_stop_button] {
+    display: none !important;
+}
+li[data-dictionary="旺文社 全訳古語辞典"] div[data-sc用例囲み-g],
+li[data-dictionary="旺文社 全訳古語辞典"] div[data-sc和歌俳句囲み-g],
+li[data-dictionary="旺文社 全訳古語辞典"] div[data-sc冒頭文囲み-g],
+li[data-dictionary="旺文社 全訳古語辞典"] div[data-sc小倉囲み-g] {
+    margin-top: 0 !important;
+}
+[data-dictionary="旺文社 全訳古語辞典"] span[data-sc-rectr][data-sc-fill] {
+    color: #f5f5f5 !important;
+}
+.nightMode [data-dictionary="旺文社 全訳古語辞典"] span[data-sc-rectr][data-sc-fill] {
+    color: #1e1e1e !important;
 }
