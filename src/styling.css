@@ -74,8 +74,6 @@
     --image-brightness: var(--dark-mode-image-brightness);
     --tooltip-hover-color: var(--dark-mode-tooltip-hover-color);
 
-    /* Code for 明鏡 第三版 by kiwakiwaa
-    and can be found here https://github.com/kiwakiwaa/vertical-cards?tab=readme-ov-file#my-yomitan-dictionaries */
     --meikyo-white: #000000;
     --meikyo-black: #cccccc;
     --meikyo-blue: #33ccff;
@@ -476,7 +474,6 @@ main {
 /* Image modal css */
 .modal-bg {
     position: fixed;
-    display: none;
     top: 0;
     right: 0;
     bottom: 0;
@@ -484,6 +481,14 @@ main {
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 1000;
     cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-bg.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .img-popup-container {
@@ -492,15 +497,24 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     width: min(calc(100% - 20px), calc(var(--max-width) + 200px));
-    display: none;
     z-index: 1001;
     overflow: hidden;
+    display: flex;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.img-popup-container.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .img-popup-img {
     width: auto;
     height: auto;
     margin: 0 auto;
+    transition: transform 0.3s ease;
 }
 
 /* Hide NFSW Images -- make sure you use the tag `NSFW` EXACTLY */
@@ -521,7 +535,7 @@ main {
     & rt {
         visibility: hidden;
     }
-    & b rt, & ruby:hover rt {
+    & ruby:hover rt {
         visibility: visible;
     }
 }

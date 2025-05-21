@@ -428,7 +428,7 @@
         document.head.classList.add("has-listener");
     }
 
-    // This just handles clicking and showing images
+    // Image lightbox with fade transition similar to JPMN
     function clickImages() {
         const modalBg = document.querySelector(".modal-bg");
         const imgPopup = document.querySelector(".img-popup");
@@ -449,20 +449,38 @@
                     imgPopupContainer.style.height = "calc(100% - 20px)";
                     imgPopupContainer.style.width = "max-content";
                 }
+
                 imgPopup.innerHTML = "";
                 imgPopup.appendChild(imgPopupContainer);
                 imgPopupContainer.appendChild(imgPopupImg);
 
-                document.body.classList.add("img-popup");
+                // Force a reflow before adding active classes to ensure transitions work
+                void modalBg.offsetWidth;
+
+                // Show the modal background with fade transition
                 modalBg.style.display = "block";
-                imgPopupContainer.style.display = "flex";
+
+                // Force another reflow to ensure the display change takes effect before transition
+                void modalBg.offsetWidth;
+
+                modalBg.classList.add("active");
+                imgPopupContainer.classList.add("active");
+                document.body.classList.add("img-popup");
             });
         }
 
         modalBg.addEventListener("click", () => {
-            document.body.classList.remove("img-popup");
-            modalBg.style.display = "none";
-            imgPopup.innerHTML = "";
+            // Removes active classes to trigger fade-out transition
+            modalBg.classList.remove("active");
+            const activeContainer = document.querySelector(".img-popup-container.active");
+            if (activeContainer) {
+                activeContainer.classList.remove("active");
+            }
+            setTimeout(() => {
+                document.body.classList.remove("img-popup");
+                modalBg.style.display = "none";
+                imgPopup.innerHTML = "";
+            }, 300);
         });
     }
 
