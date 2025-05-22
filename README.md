@@ -68,7 +68,7 @@ At the same time, another great notetype caught our eyes, [rudnam](https://githu
 To use Lapis, first download the example deck from [Releases](https://github.com/donkuri/lapis/releases). From there, you need to change your fields settings in Yomitan. Start by selecting `Lapis` as the `Model` in Yomitan's `Configure Anki Card Format`. Here is how your fields should be set up:
 
 | Field                 | Value                                                                                                                                                      |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Expression            | `{expression}`                                                                                                                                             |
 | ExpressionFurigana    | `{furigana-plain}`                                                                                                                                         |
 | ExpressionReading     | `{reading}`                                                                                                                                                |
@@ -178,7 +178,7 @@ Yes, using the `FreqSort` field. For an explanation of what frequency sorting is
 
 ### How can I change the bold color in click cards?
 
-If you do not like the bold colors (for instance grey for dark theme), you can change them under `Styling`, under the section `/* Bold colors */`. For instance, if you want a light yellow similar to JPMN, you can use the following:
+If you do not like the bold colors, you can change them under `Styling`, under the section `/* Bold color */`.
 
 ```css
   /* Bold color */
