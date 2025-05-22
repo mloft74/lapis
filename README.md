@@ -182,8 +182,8 @@ If you do not like the bold colors (for instance grey for dark theme), you can c
 
 ```css
   /* Bold color */
-    --light-mode-bold: #999999;
-    --dark-mode-bold: #f0e67f;
+    --light-mode-bold: #4660f1;
+    --dark-mode-bold: #fffd9e;
 ```
 
 ### How can I change the font size?
