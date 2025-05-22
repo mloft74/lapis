@@ -28,7 +28,6 @@ An advanced yet lightweight [Anki](https://apps.ankiweb.net/) notetype, thoughtf
     - [How does tagging work in Lapis?](#how-does-tagging-work-in-lapis)
     - [How do I add additional info to the card?](#how-do-i-add-additional-info-to-the-card)
     - [Does Lapis support frequency sorting?](#does-lapis-support-frequency-sorting)
-    - [How can I change the bold color in click cards?](#how-can-i-change-the-bold-color-in-click-cards)
     - [How can I change the font size?](#how-can-i-change-the-font-size)
     - [How can I change the fonts used?](#how-can-i-change-the-fonts-used)
     - [How can I change the bold color?](#how-can-i-change-the-bold-color)
@@ -176,16 +175,6 @@ You can use the `MiscInfo` field to add any extra information you'd like. It wil
 
 Yes, using the `FreqSort` field. For an explanation of what frequency sorting is, read [this](https://donkuri.github.io/learn-japanese/mining/#using-frequency-sorting). Basically, for each card `{frequency-harmonic-rank}` computes the [harmonic mean](https://en.wikipedia.org/wiki/Harmonic_mean) of all the frequencies on that card. It is often used when working with ratios and it approaches what the word's _true frequency_ looks like. That is what gets added to `FreqSort` and that is what you need to order by.
 
-### How can I change the bold color in click cards?
-
-If you do not like the bold colors, you can change them under `Styling`, under the section `/* Bold color */`.
-
-```css
-  /* Bold color */
-    --light-mode-bold: #4660f1;
-    --dark-mode-bold: #fffd9e;
-```
-
 ### How can I change the font size?
 
 To change the font size, open the `Styling` section of the card in Anki by going to `Browse`, then select a Lapis card and then click on `Cards` (top-left of the card editor). Once there, look for the section at the top labeled `/* PC Font sizes */` or `/* Mobile font sizes */`, which should look like this:
@@ -228,11 +217,11 @@ You can replace these with any fonts you prefer, or leave them as is to use the 
 
 ### How can I change the bold color?
 
-The default bold color is gray if no pitch accent coloring is available. If you want to change that color, open the `Styling` section of any Lapis card in Anki by going to `Browse`, then select any Lapis card and click on `Cards`  (top-left of the card editor). In the `Styling` section, look for the part labeled `/* Bold color */` and you will see this:
+These are the default bold colors if no pitch accent coloring is available. If you want to change that color, open the `Styling` section of any Lapis card in Anki by going to `Browse`, then select any Lapis card and click on `Cards`  (top-left of the card editor). In the `Styling` section, look for the part labeled `/* Bold color */` and you will see this:
 ```css
 /* Bold color */
---light-mode-bold: #999999;
---dark-mode-bold: #7d8590;
+--light-mode-bold: #4660f1;
+--dark-mode-bold: #fffd9e;
 ```
 Change the hexcode to whatever color you want by inputting the hexcode corresponding to that color. You can find [hexcode selectors](https://htmlcolorcodes.com/) online if you would like a color picker to easily choose from.
 
