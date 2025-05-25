@@ -49,6 +49,15 @@
     --def-picture-size: 200px;
     --max-width: 800px;
 
+    --main-picture-position: "right";       /* "right", "left" */
+    --sentence-furigana : "hover";          /* "hover", "always", "off" */
+    --sentence-position : "above";          /* "above", "below" the definition box*/
+    --mobile-sentence-position : "below";
+    --mobile-audio-buttons: "default";       /* "default", "header" (inside vocabulary box) */
+    --nsfw-blur-contained: "on";                /* "on", "off" */
+    --glossary-separator : "off";           /* "on" to separate dictionaries in definition box */
+	--jitendex-format: "no-sentence no-forms"; /* "minimal" or space-separated list of "no-tags", "no-sentence", "no-forms", "no-xref", "no-img" */
+
     font-size: var(--main-font-size);
 }
 
@@ -569,7 +578,7 @@ main {
     transition: transform 0.3s ease;
 }
 
-/* Hide NFSW Images -- make sure you use the tag `NSFW` EXACTLY */
+/* Hide NFSW Images */
 .NSFW img,
 .nsfw img {
     filter: blur(30px);
@@ -818,6 +827,10 @@ ul[data-sc-content="glossary"] {
     padding-left: 0;
 }
 
+[data-sc-content="extra-info"] {
+    line-height: normal;
+}
+
 /* reduce indentations of Jitendex for mobile */
 .mobile li[data-dictionary^="Jitendex"] ul,
 .mobile li[data-dictionary^="Jitendex"] ol,
@@ -996,4 +1009,92 @@ li[data-dictionary="旺文社 全訳古語辞典"] div[data-sc小倉囲み-g] {
 }
 .nightMode [data-dictionary="旺文社 全訳古語辞典"] span[data-sc-rectr][data-sc-fill] {
     color: #1e1e1e !important;
+}
+
+/*
+ *  USER SETTINGS
+ *  Please modify the variables on the top of the file.
+ */
+settings[data-main-picture-position="left"] + #qa .def-header {
+    flex-flow : row-reverse;
+}
+
+settings[data-sentence-furigana="always"] + #qa .sentence rt,
+settings[data-sentence-furigana="always"] + #qa .sentence-mobile rt {
+    visibility: visible;
+}
+
+settings[data-sentence-furigana="off"] + #qa .sentence ruby:hover rt,
+settings[data-sentence-furigana="off"] + #qa .sentence-mobile ruby:hover rt {
+    visibility: hidden;
+}
+
+html.mobile settings[data-mobile-sentence-position="above"] + #qa .sentence-mobile,
+html:not(.mobile) settings[data-sentence-position="below"] + #qa .sentence {
+    display: none;
+}
+
+html.mobile settings[data-mobile-sentence-position="above"] + #qa .sentence,
+html:not(.mobile) settings[data-sentence-position="below"] + #qa .sentence-mobile {
+    display: block;
+}
+
+html.mobile settings[data-mobile-audio-buttons="header"] + #qa .audio-buttons {
+    position: static;
+}
+
+settings[data-nsfw-blur-contained="on"] + #qa .NSFW,
+settings[data-nsfw-blur-contained="on"] + #qa .nsfw {
+    overflow: hidden;
+}
+
+settings[data-glossary-separator="on"] + #qa .definition {
+    & li[data-dictionary]:not(:last-of-type),
+    & li[data-details]:not(:last-of-type) {
+        border-bottom: 1px dashed var(--fg-subtle);
+    }
+}
+
+settings[data-jitendex-format~="minimal"] + #qa .definition {
+    & [data-sc-content]:not([data-sc-content="glossary"]) {
+        display: none;
+    }
+}
+
+settings[data-jitendex-format~="minimal"] + #qa .definition,
+settings[data-jitendex-format~="no-tags"] + #qa .definition {
+    & [data-sc-code] {
+        display: none;
+    }
+    & ul {
+        padding-inline-start: 0px;
+        margin-block: 0px;
+        & > li::marker {
+            content: '';
+        }
+    }
+}
+
+settings[data-jitendex-format~="no-sentence"] + #qa .definition {
+    & [data-sc-content|="example-sentence"] {
+        display: none;
+    }
+}
+
+settings[data-jitendex-format~="no-forms"] + #qa .definition {
+    & [data-sc-content="forms"] {
+        display: none;
+    }
+}
+
+settings[data-jitendex-format~="no-xref"] + #qa .definition {
+    & [data-sc-content="xref"] {
+        display: none;
+    }
+}
+
+settings[data-jitendex-format~="no-img"] + #qa .definition {
+    & [data-sc-content="graphic"] {
+        display: none;
+    }
 }
