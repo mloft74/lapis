@@ -78,8 +78,8 @@
     }
 
     function HideTargetWord() {
-        const targetWord = document.querySelector('#audio b');
-        targetWord.innerText = "[...]";
+        const targetWords = document.querySelectorAll('#audio b');
+        targetWords.forEach(word => word.innerText = "[...]");
     }
 
     function initialize() {
