@@ -49,14 +49,16 @@
     --def-picture-size: 200px;
     --max-width: 800px;
 
+    /* See https://github.com/donkuri/lapis/tree/main/docs/user_settings.md for an overview of these variables */
     --main-picture-position: "right";       /* "right", "left" */
     --sentence-furigana : "hover";          /* "hover", "always", "off" */
     --sentence-position : "above";          /* "above", "below" the definition box*/
     --mobile-sentence-position : "below";
     --mobile-audio-buttons: "default";      /* "default", "header" (inside vocabulary box) */
-    --nsfw-blur-contained: "on";            /* "on", "off" */
+    --nsfw-blur-contained: "off";            /* "on", "off" */
+    --open-misc-info: "off";                 /* "on", "off" */
     --glossary-separator : "off";           /* "on" to separate dictionaries in definition box */
-	--jitendex-format: "no-sentence no-forms"; /* "minimal" or space-separated list of "no-tags", "no-sentence", "no-forms", "no-xref", "no-img" */
+    --jitendex-format: "full"; /* "minimal" or space-separated list of "no-tags", "no-sentence", "no-forms", "no-xref", "no-img" */
 
     font-size: var(--main-font-size);
 }
@@ -436,10 +438,14 @@ main {
     line-height: 1.75em;
     text-align: left;
     border-left: 5px solid #ccc;
-    padding: 5px 10px;
+    padding: .5em 10px;
     margin: 5px auto;
     overflow: hidden;
     position: relative;
+}
+
+.main-def ol {
+    margin-block: 0em;
 }
 
 /* Definition info display */
@@ -827,8 +833,14 @@ ul[data-sc-content="glossary"] {
     padding-left: 0;
 }
 
-[data-sc-content="extra-info"] {
+[data-sc-content="glossary"] ~ ul,
+[data-sc-content="glossary"] ~ div {
     line-height: normal;
+}
+
+[data-sc-content="attribution"], 
+[data-sc-content="graphic-attribution"] {
+    display: none;
 }
 
 /* reduce indentations of Jitendex for mobile */
@@ -862,7 +874,6 @@ span[data-sc-code] {
 }
 
 /* backwards compatibility code for JPMN definitions */
-
 li[data-details="JMdict (English)"] .dict-group__glossary>ul,
 li[data-details="JMdict (English)"] .dict-group__glossary ul[data-sc-content="glossary"],
 li[data-details="JMdict"] .dict-group__glossary>ul,
@@ -947,15 +958,6 @@ ol li[data-details="新和英"] details.glossary-text__details .glossary-text__s
     content: ") ";
 }
 
-/* Lessen main-def padding */
-.main-def {
-    padding-block: .5em;
-}
-
-.main-def ol {
-    margin-block: 0em;
-}
-
 .definition ol:has(> li[data-dictionary]),
 .definition ol:has(> li[data-details]) {
     padding-inline-start: 1.3em;
@@ -1024,9 +1026,9 @@ settings[data-sentence-furigana="always"] + #qa .sentence-mobile rt {
     visibility: visible;
 }
 
-settings[data-sentence-furigana="off"] + #qa .sentence ruby:hover rt,
-settings[data-sentence-furigana="off"] + #qa .sentence-mobile ruby:hover rt {
-    visibility: hidden;
+settings[data-sentence-furigana="off"] + #qa .sentence rt,
+settings[data-sentence-furigana="off"] + #qa .sentence-mobile rt {
+    display: none;
 }
 
 html.mobile settings[data-mobile-sentence-position="above"] + #qa .sentence-mobile,
@@ -1088,13 +1090,13 @@ settings[data-jitendex-format~="no-forms"] + #qa .definition {
 }
 
 settings[data-jitendex-format~="no-xref"] + #qa .definition {
-    & [data-sc-content="xref"] {
+    & [data-sc-content|="xref"] {
         display: none;
     }
 }
 
 settings[data-jitendex-format~="no-img"] + #qa .definition {
-    & [data-sc-content="graphic"] {
+    & [data-sc-content|="graphic"] {
         display: none;
     }
 }
