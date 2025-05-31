@@ -116,14 +116,14 @@ Please refer to [this](docs/updating_cards.md). We do not provide other updating
 
 ### How do I use the various card types?
 
-The `is...Card` fields let you select the kind of card you want to use by placing 'x' (or anything really) in one of the fields. Without anything, you get plain old vocab cards. Please only use one selector to avoid bugs. Here are all the possible options:
+The `Is...Card` fields let you select the kind of card you want to use by placing 'x' (or anything really) in one of the fields. Without anything, you get plain old vocab cards. Please only use one selector to avoid bugs. Here are all the possible options:
 
 | Field selected        | Effect                                                                |
 | --------------------- | --------------------------------------------------------------------- |
 | IsWordAndSentenceCard | Displays the `Sentence` field as a hint below the word on the front.  |
-| isClickCard           | Makes the word in the front of the card clickable to get the sentence |
-| isSentenceCard        | The full sentence appears in the front instead of only the word       |
-| isAudioCard           | Plays the sentence audio and shows the sentence with the word missing |
+| IsClickCard           | Makes the word in the front of the card clickable to get the sentence |
+| IsSentenceCard        | The full sentence appears in the front instead of only the word       |
+| IsAudioCard           | Plays the sentence audio and shows the sentence with the word missing |
 
 When using audio cards, make sure to populate your sentence audio. It falls back to the word audio, however it will be inaccurate if it's conjugated.
 
