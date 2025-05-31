@@ -3,18 +3,6 @@
     --light-mode-bg-color: #fffaf0;
     --light-mode-fg-color: #333333;
 
-    /* Pitch colors */
-    --dark-mode-heiban: #39bae6;
-    --dark-mode-atamadaka: #ec464f;
-    --dark-mode-nakadaka: #ff8f40;
-    --dark-mode-odaka: #6cbf43;
-    --dark-mode-kifuku: #af85f4;
-    --light-mode-heiban: #1aa0ce;
-    --light-mode-atamadaka: #e92a35;
-    --light-mode-nakadaka: #ff6b03;
-    --light-mode-odaka: #61ad3b;
-    --light-mode-kifuku: #7e53c4;
-
     /* Bold color */
     --light-mode-bold: #4660f1;
     --dark-mode-bold: #fffd9e;
@@ -59,6 +47,18 @@
     --open-misc-info: "off";                 /* "on", "off" */
     --glossary-separator : "off";           /* "on" to separate dictionaries in definition box */
     --jitendex-format: "full"; /* "minimal" or space-separated list of "no-tags", "no-sentence", "no-forms", "no-xref", "no-img" */
+
+    /* Pitch colors */
+    --dark-mode-heiban: #39bae6;
+    --dark-mode-atamadaka: #ec464f;
+    --dark-mode-nakadaka: #ff8f40;
+    --dark-mode-odaka: #6cbf43;
+    --dark-mode-kifuku: #af85f4;
+    --light-mode-heiban: #1aa0ce;
+    --light-mode-atamadaka: #e92a35;
+    --light-mode-nakadaka: #ff6b03;
+    --light-mode-odaka: #61ad3b;
+    --light-mode-kifuku: #7e53c4;
 
     font-size: var(--main-font-size);
 }
@@ -584,9 +584,10 @@ main {
     transition: transform 0.3s ease;
 }
 
-/* Hide NFSW Images */
+/* Hide NFSW Images -- make sure you use the tag `NSFW` EXACTLY */
 .NSFW img,
-.nsfw img {
+.nsfw img,
+.Nsfw img {
     filter: blur(30px);
     transition: filter 0.2s;
 
@@ -1046,7 +1047,8 @@ html.mobile settings[data-mobile-audio-buttons="header"] + #qa .audio-buttons {
 }
 
 settings[data-nsfw-blur-contained="on"] + #qa .NSFW,
-settings[data-nsfw-blur-contained="on"] + #qa .nsfw {
+settings[data-nsfw-blur-contained="on"] + #qa .nsfw,
+settings[data-nsfw-blur-contained="on"] + #qa .Nsfw {
     overflow: hidden;
 }
 

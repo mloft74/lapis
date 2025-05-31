@@ -228,15 +228,15 @@ Change the hexcode to whatever color you want by inputting the hexcode correspon
 ### How can I move the sentence on mobile?
 
 You can control where the sentence is shown on both desktop and mobile by modifying the corresponding [lines](docs/user_settings.md#sentence-position) in the CSS styling.
-Set [--mobile-sentence-position](docs/user_settings.md#sentence-position) to  `"above"` to get a layout similar to the desktop one.
+Set [--mobile-sentence-position](docs/user_settings.md#sentence-position) to `"above"` to get a layout similar to the desktop one.
 
 ### How can I change the blur effect?
 
-Set [--nsfw-blur-contained](docs/user_settings.md#sentence-position) to  `"on"` to contain the blur effect to the image box
+Set [--nsfw-blur-contained](docs/user_settings.md#sentence-position) to `"on"` to contain the blur effect to the image box
 
 ### Why is the blur feature not working?
 
-Most likely it is because you are not using the right tag. Make sure your cards are tagged with `NSFW`, not `nsfw`, not `Nsfw`, it needs to be exactly `NSFW`. If you want to change the name of the tag, replace the `.NSFW` part above with `.name_tag`, where `name_tag` is the name of the tag you want to use.
+Most likely it is because you are not using the right tag. Make sure your cards are tagged with `NSFW`, `nsfw`, or `Nsfw`.
 
 ### I found a bug, where can I report it?
 
