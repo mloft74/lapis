@@ -414,6 +414,10 @@
         // hide all but first definition
         let definitions = document.querySelectorAll(".main-def > .definition > div");
         Array.from(definitions).slice(1).forEach(def => { def.classList.add("hidden"); });
+
+        // Ensure the index display, if relevant, is visible on initial load
+        updateDefDisplay();
+
         // no need for toggling on less than 2 definitions
         if (definitions.length < 2) return;
 
@@ -546,7 +550,6 @@
         splitTags();
         handlePitches();
         setUpDefToggle();
-        updateDefDisplay();
         clickImages();
         formatFrequencyList();
         setDHHeight();
