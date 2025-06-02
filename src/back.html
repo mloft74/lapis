@@ -411,15 +411,8 @@
         document.head.dataset.defIndex = 0;
         cleanUpDefinitions();
 
-        // hide all but first definition
-        let definitions = document.querySelectorAll(".main-def > .definition > div");
-        Array.from(definitions).slice(1).forEach(def => { def.classList.add("hidden"); });
-
-        // Ensure the index display, if relevant, is visible on initial load
+        // Show the first definition and ensure the index display, if relevant, is visible on initial load
         updateDefDisplay();
-
-        // no need for toggling on less than 2 definitions
-        if (definitions.length < 2) return;
 
         // Since <head> doesn't change through review sessions
         // Adding and checking for this class ensure each card doesn't add its own listener
