@@ -74,6 +74,7 @@ To use Lapis, first download the example deck from [Releases](https://github.com
 | ExpressionAudio       | `{audio}`                                                                                                                                                  |
 | SelectionText         | `{popup-selection-text}`                                                                                                                                   |
 | MainDefinition        | Something like `{single-glossary-jmdict/jitendex}`. Find this by clicking the down arrow next to this field, and finding a dictionary in a similar format. |
+| DefinitionPicture     | Here you can include any image you'd like to use to help *illustrate* the definition or the vocabulary term.                                               |
 | Sentence              | `{cloze-prefix}<b>{cloze-body}</b>{cloze-suffix}`                                                                                                          |
 | SentenceFurigana      |                                                                                                                                                            |
 | SentenceAudio         |                                                                                                                                                            |
