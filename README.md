@@ -96,7 +96,7 @@ In `MainDefinition`, what you get will depend on the version of JMdict or Jitend
 
 ## How to update Lapis
 
-In order to update Lapis (provided you're on Anki 23.10+, the supported versions), simply import the newer APKG.
+In order to update Lapis (provided you're on Anki 23.10+, the supported versions), simply import the newer APKG. Make sure to copy the changes you made to variables in the styling before updating, as the update process will reset everything to default.
 
 ## Lapis themes
 
