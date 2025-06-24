@@ -539,7 +539,7 @@
     }
 
     function userSettings() {
-        const oldSettings = document.querySelector("body > settings");
+        const oldSettings = document.querySelector("settings");
         // Needed to give user instant feedback on their changes
         oldSettings?.remove();
 
@@ -559,11 +559,12 @@
             const value = getComputedStyle(document.documentElement).getPropertyValue(opt).trim();
             settings.setAttribute("data-" + opt.slice(2), value.slice(1, -1));
             if (opt === "--open-misc-info" && value === "\"on\"") {
-                const miscInfo = document.querySelector("details:has(.misc-info)")
+                const miscInfo = document.querySelector("details:has(.misc-info)");
                 if (miscInfo) miscInfo.open = true;
             }
         }
-        document.body.insertBefore(settings, document.getElementById("qa"));
+        const qa = document.getElementById("qa");
+        qa.parentElement.insertBefore(settings, qa);
     }
 
     // Initialize all functions!!!
