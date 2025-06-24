@@ -128,8 +128,8 @@
     }
 
     function hasVerbOrAdjEnding() {
-        const endings = ["い", "う", "く", "す", "つ", "ぶ", "む", "る"];
-        return endings.some(ending => `{{Expression}}`.replace("</div>","").endsWith(ending));
+        const endings = ["い", "う", "く", "ぐ", "す", "つ", "ぶ", "む", "る"];
+        return endings.some(ending => `{{text:Expression}}`.endsWith(ending));
     }
 
     function getPitchType(pitchPosition) {
@@ -351,7 +351,7 @@
         // multiple dicts
         const primaryDicts = document.querySelectorAll("#primary li[data-dictionary]");
         const glossariesDicts = document.querySelectorAll("#glossaries li[data-dictionary]");
-        return primaryDicts.length === glossariesDicts.length
+        return primaryDicts.length === glossariesDicts.length;
     }
 
     // Removes Unnecessary definitions
@@ -498,7 +498,7 @@
     function setDHHeight() {
         var dhLeft = document.querySelector('.dh-left');
         var dhRight = document.querySelector('.dh-right .image img');
-        var defHeader = document.querySelector('.def-header')
+        var defHeader = document.querySelector('.def-header');
 
         if (dhLeft && dhRight) {
             var dhLeftHeight = dhLeft.offsetHeight;
