@@ -34,6 +34,7 @@ An advanced yet lightweight [Anki](https://apps.ankiweb.net/) notetype, thoughtf
     - [How can I move the sentence on mobile?](#how-can-i-move-the-sentence-on-mobile)
     - [How can I change the blur effect?](#how-can-i-change-the-blur-effect)
     - [Why is the blur feature not working?](#why-is-the-blur-feature-not-working)
+    - [I have some garbage text like \<ruby\> inside the pitch](#i-have-some-garbage-text-like-ruby-inside-the-pitch)
     - [I found a bug, where can I report it?](#i-found-a-bug-where-can-i-report-it)
     - [I have a question not covered in the FAQ](#i-have-a-question-not-covered-in-the-faq)
   - [Contributors](#contributors)
@@ -95,7 +96,7 @@ In `MainDefinition`, what you get will depend on the version of JMdict or Jitend
 
 ## How to update Lapis
 
-In order to update Lapis (provided you're on Anki 23.10+, the supported versions), simply import the newer APKG.
+In order to update Lapis (provided you're on Anki 23.10+, the supported versions), simply import the newer APKG. Make sure to copy the changes you made to variables in the styling before updating, as the update process will reset everything to default.
 
 ## Lapis themes
 
@@ -238,6 +239,10 @@ Set [--nsfw-blur-contained](docs/user_settings.md#sentence-position) to `"on"` t
 ### Why is the blur feature not working?
 
 Most likely it is because you are not using the right tag. Make sure your cards are tagged with `NSFW`, `nsfw`, or `Nsfw`.
+
+### I have some garbage text like \<ruby\> inside the pitch.
+
+ExpressionFurigana in Yomitan's settings must use `{furigana-plain}`. It gets autofilled with `{furigana}` so it's easily overlooked.
 
 ### I found a bug, where can I report it?
 
