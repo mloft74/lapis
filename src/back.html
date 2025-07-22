@@ -1,115 +1,117 @@
+<lapis id="lapis">
 <!---------- Header ------------->
-<header>
-    <div class="top-container">
-        <!-- Show the frequency number -->
-        {{FreqSort}}
+    <header>
+        <div class="top-container">
+            <!-- Show the frequency number -->
+            {{FreqSort}}
 
-        <!-- The frequency list -->
-        {{#Frequency}}
-        <span class="freq-dropdown">
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" class="dropdown-arrow-svg"
-                viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
-                <path d="M 12.7,6.5 H 3.3 L 8,11 Z"></path>
-            </svg>
-            <div class="freq-list-container">{{Frequency}}</div>
-        </span>
-        {{/Frequency}}
-    </div>
-</header>
+            <!-- The frequency list -->
+            {{#Frequency}}
+            <span class="freq-dropdown">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" class="dropdown-arrow-svg"
+                    viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                    <path d="M 12.7,6.5 H 3.3 L 8,11 Z"></path>
+                </svg>
+                <div class="freq-list-container">{{Frequency}}</div>
+            </span>
+            {{/Frequency}}
+        </div>
+    </header>
 
-<main lang="ja">
-    <!-- The first row (vocab box+picture) -->
-    <div class="def-header">
-        <div class="dh-left">
-            <div class="vocab">
-                {{#ExpressionFurigana}}{{furigana:ExpressionFurigana}}{{/ExpressionFurigana}}
-                {{^ExpressionFurigana}}{{Expression}}{{/ExpressionFurigana}}
-            </div>
-
-            <!-- Reading + Pitch Accent -->
-            <div class="info">
-                <div class="pitch">
-                    {{#ExpressionFurigana}}{{kana:ExpressionFurigana}}{{/ExpressionFurigana}}
-                    {{^ExpressionFurigana}}{{ExpressionReading}}{{/ExpressionFurigana}}
+    <main lang="ja">
+        <!-- The first row (vocab box+picture) -->
+        <div class="def-header">
+            <div class="dh-left">
+                <div class="vocab">
+                    {{#ExpressionFurigana}}{{furigana:ExpressionFurigana}}{{/ExpressionFurigana}}
+                    {{^ExpressionFurigana}}{{Expression}}{{/ExpressionFurigana}}
                 </div>
 
-                <!-- Pitch Accent -->
-                {{#PitchPosition}}
-                <span id="pitch-tags" class="tags"> {{PitchPosition}} </span>
-                {{/PitchPosition}}
-                <br />
-                <div class="audio-buttons">{{ExpressionAudio}} {{SentenceAudio}}</div>
+                <!-- Reading + Pitch Accent -->
+                <div class="info">
+                    <div class="pitch">
+                        {{#ExpressionFurigana}}{{kana:ExpressionFurigana}}{{/ExpressionFurigana}}
+                        {{^ExpressionFurigana}}{{ExpressionReading}}{{/ExpressionFurigana}}
+                    </div>
+
+                    <!-- Pitch Accent -->
+                    {{#PitchPosition}}
+                    <span id="pitch-tags" class="tags"> {{PitchPosition}} </span>
+                    {{/PitchPosition}}
+                    <br />
+                    <div class="audio-buttons">{{ExpressionAudio}} {{SentenceAudio}}</div>
+                </div>
+            </div>
+
+            <!-- Image -->
+            {{#Picture}}
+            <div class="dh-right">
+                <div class="image tappable {{Tags}}">{{Picture}}</div>
+            </div>
+            {{/Picture}}
+        </div>
+
+        <br>
+        <div class="sentence">
+            {{#SentenceFurigana}} {{furigana:SentenceFurigana}} {{/SentenceFurigana}}
+            {{^SentenceFurigana}} {{furigana:Sentence}} {{/SentenceFurigana}}
+        </div>
+
+        <!-- The entire definition box -->
+        <div class="def-info">First Definition 1/?</div>
+        <div class="main-def">
+            <div class="edge tappable" id="edge-prev" onclick="changeIndex(-1)"></div>
+            <div class="edge tappable" id="edge-next" onclick="changeIndex(1)"></div>
+            {{#DefinitionPicture}}
+            <div class="def-image tappable">{{DefinitionPicture}}</div>
+            {{/DefinitionPicture}}
+            <div class="definition">
+                {{#SelectionText}}
+                <div id="selection" data-display-name="Text Selection">{{SelectionText}}</div>
+                {{/SelectionText}}
+                {{#MainDefinition}}
+                <div id="primary" data-display-name="Primary Definition">{{MainDefinition}}</div>
+                {{/MainDefinition}}
+                <div id="glossaries" data-display-name="Glossaries">{{Glossary}}</div>
             </div>
         </div>
 
-        <!-- Image -->
-        {{#Picture}}
-        <div class="dh-right">
-            <div class="image tappable {{Tags}}">{{Picture}}</div>
+        <!-- This is for the sentence that you see on mobile (positioned under definition), on Desktop, the sentence goes above the definition box, and this is hidden -->
+        <div class="sentence-mobile">
+            {{#SentenceFurigana}} {{furigana:SentenceFurigana}} {{/SentenceFurigana}}
+            {{^SentenceFurigana}} {{furigana:Sentence}} {{/SentenceFurigana}}
         </div>
-        {{/Picture}}
-    </div>
 
-    <br>
-    <div class="sentence">
-        {{#SentenceFurigana}} {{furigana:SentenceFurigana}} {{/SentenceFurigana}}
-        {{^SentenceFurigana}} {{furigana:Sentence}} {{/SentenceFurigana}}
-    </div>
-
-    <!-- The entire definition box -->
-    <div class="def-info">First Definition 1/?</div>
-    <div class="main-def">
-        <div class="edge tappable" id="edge-prev" onclick="changeIndex(-1)"></div>
-        <div class="edge tappable" id="edge-next" onclick="changeIndex(1)"></div>
-        {{#DefinitionPicture}}
-        <div class="def-image tappable">{{DefinitionPicture}}</div>
-        {{/DefinitionPicture}}
-        <div class="definition">
-            {{#SelectionText}}
-            <div id="selection" data-display-name="Text Selection">{{SelectionText}}</div>
-            {{/SelectionText}}
-            {{#MainDefinition}}
-            <div id="primary" data-display-name="Primary Definition">{{MainDefinition}}</div>
-            {{/MainDefinition}}
-            <div id="glossaries" data-display-name="Glossaries">{{Glossary}}</div>
+        <!------- Image modal --------->
+        <div class="modal-bg tappable">
+            <div class="img-popup"></div>
         </div>
-    </div>
 
-    <!-- This is for the sentence that you see on mobile (positioned under definition), on Desktop, the sentence goes above the definition box, and this is hidden -->
-    <div class="sentence-mobile">
-        {{#SentenceFurigana}} {{furigana:SentenceFurigana}} {{/SentenceFurigana}}
-        {{^SentenceFurigana}} {{furigana:Sentence}} {{/SentenceFurigana}}
-    </div>
+        {{#MiscInfo}}
+        <details>
+            <summary>Misc. info</summary>
+            <div class="misc-info">
+                === Details ===
+                <br />
+                {{MiscInfo}}
+            </div>
+        </details>
+        {{/MiscInfo}}
+    </main>
 
-    <!------- Image modal --------->
-    <div class="modal-bg tappable">
-        <div class="img-popup"></div>
-    </div>
-
-    {{#MiscInfo}}
-    <details>
-        <summary>Misc. info</summary>
-        <div class="misc-info">
-            === Details ===
-            <br />
-            {{MiscInfo}}
+    <!----------- Footer ------------->
+    <footer lang="ja">
+        <br>
+        <div class="bot-container">
+            {{#Tags}}
+            <div class="tags-container">
+                <div class="tags">{{Tags}}</div>
+            </div>
+            {{/Tags}}
         </div>
-    </details>
-    {{/MiscInfo}}
-</main>
-
-<!----------- Footer ------------->
-<footer lang="ja">
-    <br>
-    <div class="bot-container">
-        {{#Tags}}
-        <div class="tags-container">
-            <div class="tags">{{Tags}}</div>
-        </div>
-        {{/Tags}}
-    </div>
-</footer>
+    </footer>
+</lapis>
 
 <!----------- Scripts ------------>
 <script>
@@ -563,8 +565,8 @@
                 if (miscInfo) miscInfo.open = true;
             }
         }
-        const qa = document.getElementById("qa");
-        qa.parentElement.insertBefore(settings, qa);
+        const lapis = document.getElementById("lapis");
+        lapis.parentElement.insertBefore(settings, lapis);
     }
 
     // Initialize all functions!!!
