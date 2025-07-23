@@ -28,8 +28,8 @@
   --mobile-info-font-size: 16px;
 
   /* Miscellaneous */
-  --font-serif: "Hiragino Mincho ProN", "Noto Serif CJK JP", "Yu Mincho", HanaMinA, HanaMinB, serif;
-  --font-sans: "Inter", "SF Pro Display", "Liberation Sans", "Segoe UI", "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP", "Meiryo", HanaMinA, HanaMinB, sans-serif;
+  --font-serif: "_NotoSerifJP", "Hiragino Mincho ProN", "Noto Serif CJK JP", "Yu Mincho", HanaMinA, HanaMinB, serif;
+  --font-sans: "_NotoSansJP", "Inter", "SF Pro Display", "Liberation Sans", "Segoe UI", "Hiragino Kaku Gothic ProN", "Noto Sans CJK JP", "Meiryo", HanaMinA, HanaMinB, sans-serif;
   --light-mode-image-brightness: 85%;
   --dark-mode-image-brightness: 80%;
   --light-mode-tooltip-hover-color: rgb(256, 256, 256, 0.9);
@@ -222,7 +222,7 @@ html.mobile {
   align-items: stretch;
   flex-direction: column;
   min-height: calc(100vh - 40px);
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: var(--main-font-size);
   text-align: center;
 }
@@ -619,6 +619,11 @@ main {
 .mobile .sentence,
 html:not(.mobile) .sentence-mobile {
   display: none;
+}
+
+/* Notes */
+.notes {
+    font-size: var(--main-font-size);
 }
 
 /* Footer */
@@ -1157,3 +1162,6 @@ settings[data-jitendex-format~="no-img"] + lapis .definition {
     display: none;
   }
 }
+
+@font-face {font-family: _NotoSerifJP; src: url('_NotoSerifJP.ttf');}
+@font-face {font-family: _NotoSansJP; src: url('_NotoSansJP.ttf');}

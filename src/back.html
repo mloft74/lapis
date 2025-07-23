@@ -52,10 +52,17 @@
             {{/Picture}}
         </div>
 
+        <div>{{info-New?:}}</div>
+
         <br>
         <div class="sentence">
-            {{#SentenceFurigana}} {{furigana:SentenceFurigana}} {{/SentenceFurigana}}
-            {{^SentenceFurigana}} {{furigana:Sentence}} {{/SentenceFurigana}}
+            <div>
+                {{#SentenceFurigana}} {{furigana:SentenceFurigana}} {{/SentenceFurigana}}
+                {{^SentenceFurigana}} {{furigana:Sentence}} {{/SentenceFurigana}}
+            </div>
+            <div class="notes">
+                {{Notes}}
+            </div>
         </div>
 
         <!-- The entire definition box -->
@@ -79,8 +86,13 @@
 
         <!-- This is for the sentence that you see on mobile (positioned under definition), on Desktop, the sentence goes above the definition box, and this is hidden -->
         <div class="sentence-mobile">
-            {{#SentenceFurigana}} {{furigana:SentenceFurigana}} {{/SentenceFurigana}}
-            {{^SentenceFurigana}} {{furigana:Sentence}} {{/SentenceFurigana}}
+            <div>
+                {{#SentenceFurigana}} {{furigana:SentenceFurigana}} {{/SentenceFurigana}}
+                {{^SentenceFurigana}} {{furigana:Sentence}} {{/SentenceFurigana}}
+            </div>
+            <div class="notes">
+                {{Notes}}
+            </div>
         </div>
 
         <!------- Image modal --------->
