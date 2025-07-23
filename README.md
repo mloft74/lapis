@@ -98,9 +98,9 @@ In `MainDefinition`, what you get will depend on the version of JMdict or Jitend
 
 In order to update Lapis (provided you're on Anki 23.10+, the supported versions), simply import the newer APKG. Make sure to copy the changes you made to variables in the styling before updating, as the update process will reset everything to default.
 
-## Lapis themes
+## Lapis forks
 
-[ccos89](https://github.com/ccos89) made a few themes for Lapis based on the [Catpuccin palette](https://catppuccin.com/palette/). You can find them [over here](https://github.com/ccos89/lapis-catpuccin). This might alter the pitch color accent, so do keep it in mind.
+Some people have forked and extended Lapis, e.g. [lapis-extended](https://github.com/kiwakiwaa/lapis-extended) and [lapis-modified](https://github.com/friedrich-de/lapis-modified). **If you decide to use these forks and you run into issues, we will not be able to help you, please contact the fork maintainers directly**.
 
 ## FAQ
 
