@@ -217,7 +217,7 @@ html.mobile {
   --info-font-size: var(--mobile-info-font-size);
 }
 
-#qa {
+#lapis {
   display: flex;
   align-items: stretch;
   flex-direction: column;
@@ -1071,7 +1071,7 @@ li[data-dictionary="旺文社 全訳古語辞典"] div[data-sc小倉囲み-g] {
 
 /*
  *  USER SETTINGS
- *  Please modify the variables on the top of the file.
+ *  Please modify the variables at the top of the file.
  */
 settings[data-main-picture-position="left"] + lapis .def-header {
   flex-flow: row-reverse;

@@ -1,48 +1,50 @@
-<!---------- Header ------------->
-<header style="visibility: hidden"></header>
+<lapis id="lapis">
+    <!---------- Header ------------->
+    <header style="visibility: hidden"></header>
 
-<main lang="ja" style="width: 100%;">
-  <!--------- Vocab card ---------->
-  {{^IsSentenceCard}} {{^IsWordAndSentenceCard}} {{^IsClickCard}}
-  {{^IsAudioCard}}
-  <div lang="ja" class="front-vocab">{{Expression}}</div>
-  {{/IsAudioCard}} {{/IsClickCard}} {{/IsWordAndSentenceCard}}
-  {{/IsSentenceCard}}
-
-  <!------- Sentence card --------->
-  {{#IsSentenceCard}}
-  <div lang="ja" class="front-sentence">{{kanji:Sentence}}</div>
-  {{/IsSentenceCard}}
-
-  <!--------- Word And Sentence card ----------->
-  {{#IsWordAndSentenceCard}}
-  <div lang="ja" class="front-vocab">{{Expression}}</div>
-  <div lang="ja" id="hint">{{kanji:Sentence}}</div>
-  {{/IsWordAndSentenceCard}}
-
-  <!-------- Click card ----------->
-  {{#IsClickCard}}
-  <div id="click" class="tappable">
+    <main lang="ja" style="width: 100%;">
+    <!--------- Vocab card ---------->
+    {{^IsSentenceCard}} {{^IsWordAndSentenceCard}} {{^IsClickCard}}
+    {{^IsAudioCard}}
     <div lang="ja" class="front-vocab">{{Expression}}</div>
-  </div>
-  {{/IsClickCard}}
+    {{/IsAudioCard}} {{/IsClickCard}} {{/IsWordAndSentenceCard}}
+    {{/IsSentenceCard}}
 
-  <!-------- Audio card ----------->
-  {{#IsAudioCard}}
-  <div id="audio">
+    <!------- Sentence card --------->
+    {{#IsSentenceCard}}
     <div lang="ja" class="front-sentence">{{kanji:Sentence}}</div>
-    <div>
-      {{#SentenceAudio}}{{SentenceAudio}}{{/SentenceAudio}}
-      {{^SentenceAudio}}{{ExpressionAudio}}{{/SentenceAudio}}
-    </div>
-  </div>
-  {{/IsAudioCard}}
+    {{/IsSentenceCard}}
 
-  <!-- Hint -->
-  {{#Hint}}
-  <div id="hint">{{Hint}}</div>
-  {{/Hint}}
-</main>
+    <!--------- Word And Sentence card ----------->
+    {{#IsWordAndSentenceCard}}
+    <div lang="ja" class="front-vocab">{{Expression}}</div>
+    <div lang="ja" id="hint">{{kanji:Sentence}}</div>
+    {{/IsWordAndSentenceCard}}
+
+    <!-------- Click card ----------->
+    {{#IsClickCard}}
+    <div id="click" class="tappable">
+        <div lang="ja" class="front-vocab">{{Expression}}</div>
+    </div>
+    {{/IsClickCard}}
+
+    <!-------- Audio card ----------->
+    {{#IsAudioCard}}
+    <div id="audio">
+        <div lang="ja" class="front-sentence">{{kanji:Sentence}}</div>
+        <div>
+        {{#SentenceAudio}}{{SentenceAudio}}{{/SentenceAudio}}
+        {{^SentenceAudio}}{{ExpressionAudio}}{{/SentenceAudio}}
+        </div>
+    </div>
+    {{/IsAudioCard}}
+
+    <!-- Hint -->
+    {{#Hint}}
+    <div id="hint">{{Hint}}</div>
+    {{/Hint}}
+    </main>
+</lapis>
 
 <script>
   function ClickCard() {
