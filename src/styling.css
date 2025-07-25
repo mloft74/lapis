@@ -40,7 +40,7 @@
   /* See https://github.com/donkuri/lapis/tree/main/docs/user_settings.md for an overview of these variables */
   --main-picture-position: "right"; /* "right", "left" */
   --sentence-furigana: "hover"; /* "hover", "always", "off" */
-  --sentence-position: "above"; /* "above", "below" the definition box*/
+  --sentence-position: "below"; /* "above", "below" the definition box*/
   --mobile-sentence-position: "below";
   --mobile-audio-buttons: "default"; /* "default", "header" (inside vocabulary box) */
   --nsfw-blur-contained: "off"; /* "on", "off" */
