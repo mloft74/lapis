@@ -51,11 +51,20 @@
         </div>
 
         <br>
+
+        <!-- Requires addon 744725736 -->
+        <div>{{info-New?:}}</div>
+
         <div class="sentence">
-            {{#Picture}}<div class="image-alt tappable {{Tags}}">{{Picture}}</div>{{/Picture}}
+            <div>
+                {{#Picture}}<div class="image-alt tappable {{Tags}}">{{Picture}}</div>{{/Picture}}
                 {{#SentenceFurigana}} {{furigana:SentenceFurigana}} {{/SentenceFurigana}}
                 {{^SentenceFurigana}} {{furigana:Sentence}} {{/SentenceFurigana}}
-            <div class="audio-buttons-alt"></div>
+                <div class="audio-buttons-alt"></div>
+            </div>
+            <div class="notes">
+                {{Notes}}
+            </div>
         </div>
 
         <!-- The entire definition box -->
@@ -79,10 +88,15 @@
 
         <!-- Alternative Sentence Position -->
         <div class="sentence-alt">
-            {{#Picture}}<div class="image-alt tappable {{Tags}}">{{Picture}}</div>{{/Picture}}
+            <div>
+                {{#Picture}}<div class="image-alt tappable {{Tags}}">{{Picture}}</div>{{/Picture}}
                 {{#SentenceFurigana}} {{furigana:SentenceFurigana}} {{/SentenceFurigana}}
                 {{^SentenceFurigana}} {{furigana:Sentence}} {{/SentenceFurigana}}
-            <div class="audio-buttons-alt"></div>
+                <div class="audio-buttons-alt"></div>
+            </div>
+            <div class="notes">
+                {{Notes}}
+            </div>
         </div>
 
         <!------- Image modal --------->
